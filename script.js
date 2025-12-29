@@ -302,12 +302,12 @@ const featureTabs = {
         reconciliation: {
             title: '自動對帳',
             description: '只需上傳銀行 CSV 明細，系統會自動比對後五碼與金額，準確率達 99.9%，一秒完成百筆訂單確認。',
-            videoSrc: 'https://rppl0rsu6jd4zda6.public.blob.vercel-storage.com/klink_demo%20Reconciliation.mp4'
+            videoSrc: 'https://rppl0rsu6jd4zda6.public.blob.vercel-storage.com/klink_demo_Reconciliation.mp4'
         },
         sorting: {
             title: '小卡配位',
             description: '獨家開發的算法模型，基於下單順序與志願序，自動完成最公平的小卡配位工作，公正公開。',
-            videoSrc: 'https://rppl0rsu6jd4zda6.public.blob.vercel-storage.com/klink_demo%20sorting.mp4'
+            videoSrc: 'https://rppl0rsu6jd4zda6.public.blob.vercel-storage.com/klink_demo_sorting.mp4'
         },
         query: {
             title: '買家查詢',
@@ -317,7 +317,7 @@ const featureTabs = {
         import: {
             title: '一鍵匯入',
             description: '一鍵導入Google sheet資料，數據即刻進入K-Link Pro 系統，開啟自動化管理的代購流程。',
-            videoSrc: 'https://rppl0rsu6jd4zda6.public.blob.vercel-storage.com/klink_demo%20import.mp4'
+            videoSrc: 'https://rppl0rsu6jd4zda6.public.blob.vercel-storage.com/klink_demo_import.mp4'
         },
         notification: {
             title: '寄送通知',
@@ -351,6 +351,9 @@ const featureTabs = {
         // Update text content
         if (titleEl) titleEl.textContent = data.title;
         if (descEl) descEl.textContent = data.description;
+        
+        // Mobile: Move video container below active button
+        this.moveVideoContainerForMobile(activeBtn);
         
         // Handle video
         if (data.videoSrc) {
@@ -402,38 +405,12 @@ const featureTabs = {
                 }
                 
                 // Load the new video
-                console.log('Video element:', updatedVideo);
-                console.log('Video source element:', updatedSource);
-                console.log('Video source src:', updatedSource ? updatedSource.getAttribute('src') : 'none');
-                console.log('Video src attribute:', updatedVideo.getAttribute('src'));
-                
-                // Add multiple event listeners to track loading progress
-                updatedVideo.addEventListener('loadstart', () => {
-                    console.log('Video loadstart event fired');
-                }, { once: true });
-                
-                updatedVideo.addEventListener('loadedmetadata', () => {
-                    console.log('Video loadedmetadata event fired. Duration:', updatedVideo.duration);
-                }, { once: true });
-                
-                updatedVideo.addEventListener('loadeddata', () => {
-                    console.log('Video loadeddata event fired. Ready state:', updatedVideo.readyState);
-                }, { once: true });
-                
-                updatedVideo.addEventListener('canplay', () => {
-                    console.log('Video canplay event fired. Ready state:', updatedVideo.readyState);
-                }, { once: true });
-                
-                updatedVideo.addEventListener('canplaythrough', () => {
-                    console.log('Video canplaythrough event fired');
-                }, { once: true });
-                
                 updatedVideo.load();
                 console.log('Video load() called. Current src:', updatedVideo.src || updatedSource?.getAttribute('src'));
                 
-                // Play video after loading with fade in
-                const playVideo = () => {
-                    console.log('Attempting to play video. Ready state:', updatedVideo.readyState);
+                // Wait for video to be ready - try multiple events
+                if (updatedVideo.readyState >= 2) {
+                    console.log('Video already loaded, ready state:', updatedVideo.readyState);
                     // Hide loading indicator
                     if (loadingIndicator) {
                         loadingIndicator.classList.add('hidden');
@@ -444,43 +421,67 @@ const featureTabs = {
                         console.log('Video playing successfully');
                     }).catch(err => {
                         console.error('Video play error:', err);
-                        // Show placeholder with play button
-                        if (placeholder) {
-                            placeholder.style.display = 'flex';
-                            placeholder.innerHTML = `
-                                <div class="text-center">
-                                    <div class="w-20 h-20 bg-yellow-100 rounded-3xl flex items-center justify-center mx-auto mb-4">
-                                        <i data-lucide="play-circle" class="w-10 h-10 text-yellow-500"></i>
-                                    </div>
-                                    <p class="text-gray-400 font-medium">點擊播放影片</p>
-                                    <button onclick="document.getElementById('feature-video').play()" class="mt-4 px-6 py-2 bg-lilac-500 text-white rounded-xl font-bold hover:bg-lilac-600 transition-all">
-                                        播放
-                                    </button>
-                                </div>
-                            `;
-                            lucide.createIcons();
-                        }
                     });
-                };
-                
-                // Wait for video to be ready - try multiple events
-                if (updatedVideo.readyState >= 2) {
-                    console.log('Video already loaded, ready state:', updatedVideo.readyState);
-                    playVideo();
                 } else {
                     // Try canplaythrough first (most complete), then canplay, then loadeddata
-                    updatedVideo.addEventListener('canplaythrough', playVideo, { once: true });
-                    updatedVideo.addEventListener('canplay', playVideo, { once: true });
+                    updatedVideo.addEventListener('canplaythrough', () => {
+                        console.log('Video canplaythrough event fired');
+                        if (loadingIndicator) {
+                            loadingIndicator.classList.add('hidden');
+                            loadingIndicator.style.display = 'none';
+                        }
+                        updatedVideo.style.opacity = '1';
+                        updatedVideo.play().then(() => {
+                            console.log('Video playing successfully');
+                        }).catch(err => {
+                            console.error('Video play error:', err);
+                        });
+                    }, { once: true });
+                    
+                    updatedVideo.addEventListener('canplay', () => {
+                        console.log('Video canplay event fired. Ready state:', updatedVideo.readyState);
+                        if (loadingIndicator) {
+                            loadingIndicator.classList.add('hidden');
+                            loadingIndicator.style.display = 'none';
+                        }
+                        updatedVideo.style.opacity = '1';
+                        updatedVideo.play().then(() => {
+                            console.log('Video playing successfully');
+                        }).catch(err => {
+                            console.error('Video play error:', err);
+                        });
+                    }, { once: true });
+                    
                     updatedVideo.addEventListener('loadeddata', () => {
-                        console.log('Video loadeddata - attempting play');
-                        setTimeout(playVideo, 100);
+                        console.log('Video loadeddata event fired. Ready state:', updatedVideo.readyState);
+                        setTimeout(() => {
+                            if (loadingIndicator) {
+                                loadingIndicator.classList.add('hidden');
+                                loadingIndicator.style.display = 'none';
+                            }
+                            updatedVideo.style.opacity = '1';
+                            updatedVideo.play().then(() => {
+                                console.log('Video playing successfully');
+                            }).catch(err => {
+                                console.error('Video play error:', err);
+                            });
+                        }, 100);
                     }, { once: true });
                     
                     // Fallback: try after a short delay
                     setTimeout(() => {
                         if (updatedVideo.readyState >= 2) {
                             console.log('Fallback: Video ready after timeout');
-                            playVideo();
+                            if (loadingIndicator) {
+                                loadingIndicator.classList.add('hidden');
+                                loadingIndicator.style.display = 'none';
+                            }
+                            updatedVideo.style.opacity = '1';
+                            updatedVideo.play().then(() => {
+                                console.log('Video playing successfully');
+                            }).catch(err => {
+                                console.error('Video play error:', err);
+                            });
                         } else {
                             console.warn('Video not ready after timeout. Ready state:', updatedVideo.readyState);
                         }
@@ -574,6 +575,40 @@ const featureTabs = {
         if (this.videoData[tabName]) {
             this.videoData[tabName].videoSrc = videoSrc;
         }
+    },
+    
+    moveVideoContainerForMobile(activeTab) {
+        // Use querySelector with attribute selector to find the sticky container
+        const videoContainer = document.querySelector('[class*="lg:sticky"]') || 
+                               document.querySelector('.lg\\:sticky') ||
+                               document.querySelector('.lg\\:top-24');
+        
+        if (!videoContainer || !activeTab) return;
+        
+        // Check if we're on mobile (screen width < 1024px)
+        const isMobile = window.innerWidth < 1024;
+        
+        if (isMobile) {
+            // Mobile: Insert video container after active button
+            const nextSibling = activeTab.nextElementSibling;
+            
+            // Only move if not already in the right position
+            if (nextSibling !== videoContainer) {
+                // Remove from current position
+                videoContainer.remove();
+                // Insert after active button
+                activeTab.insertAdjacentElement('afterend', videoContainer);
+            }
+        } else {
+            // Desktop: Move back to original position (right side of grid)
+            const gridContainer = document.querySelector('.grid.lg\\:grid-cols-2');
+            
+            if (gridContainer && !gridContainer.contains(videoContainer)) {
+                // Move video back to grid container (will be on right side due to grid layout)
+                videoContainer.remove();
+                gridContainer.appendChild(videoContainer);
+            }
+        }
     }
 };
 
@@ -587,6 +622,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     // Load first tab's video
     featureTabs.switchTab('reconciliation');
+    
+    // Handle window resize to reposition video container
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            const activeTab = document.querySelector('.feature-tab.active');
+            if (activeTab) {
+                featureTabs.moveVideoContainerForMobile(activeTab);
+            }
+        }, 250);
+    });
     
     // Footer contact form handler
     const footerForm = document.getElementById('footer-contact-form');

@@ -7,11 +7,18 @@
 /* For now, keeping inline script in HTML for Tailwind CDN compatibility */
 
 /* Custom Styles */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+}
+
 body { 
     font-family: 'Inter', 'Noto Sans TC', sans-serif; 
     background-color: #FFFFFF;
     color: #1A1A1A;
     -webkit-font-smoothing: antialiased;
+    position: relative;
 }
 
 .apple-blur {
@@ -62,7 +69,46 @@ body {
 
 @media (max-width: 1024px) {
     #feature-video-container {
-        min-height: 300px;
+        min-height: 250px;
+    }
+}
+
+@media (max-width: 640px) {
+    #feature-video-container {
+        min-height: 200px;
+        aspect-ratio: 16/9 !important;
+    }
+    
+    /* Ensure video container doesn't overflow on mobile */
+    .feature-tab {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    /* Prevent horizontal scroll on mobile */
+    * {
+        max-width: 100%;
+    }
+    
+    /* Ensure all containers respect viewport width */
+    section {
+        overflow-x: hidden;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    /* Fix any elements that might overflow */
+    .max-w-7xl,
+    .max-w-5xl,
+    .max-w-4xl,
+    .max-w-6xl,
+    .max-w-3xl,
+    .max-w-2xl {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        box-sizing: border-box;
     }
 }
 
