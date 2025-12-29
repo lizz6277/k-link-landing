@@ -1,0 +1,83 @@
+/* Tailwind CSS Configuration */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Tailwind Config - Note: This should be in a tailwind.config.js file for production */
+/* For now, keeping inline script in HTML for Tailwind CDN compatibility */
+
+/* Custom Styles */
+body { 
+    font-family: 'Inter', 'Noto Sans TC', sans-serif; 
+    background-color: #FFFFFF;
+    color: #1A1A1A;
+    -webkit-font-smoothing: antialiased;
+}
+
+.apple-blur {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #1A1A1A 0%, #8E44AD 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Feature Tabs Styles */
+.feature-tab {
+    transition: all 0.3s ease;
+}
+
+.feature-tab.active {
+    border-color: #AF7AC5;
+    background-color: #F5EEF8;
+}
+
+#feature-video {
+    transition: opacity 0.3s ease;
+}
+
+#feature-video-container {
+    position: relative;
+    min-height: 400px;
+}
+
+@media (max-width: 1024px) {
+    #feature-video-container {
+        min-height: 300px;
+    }
+}
+
+/* Excel Table Styles */
+.excel-data-container {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+.excel-data-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.excel-data-container {
+    mask-image: linear-gradient(to bottom, black 0%, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 85%, transparent 100%);
+}
+
