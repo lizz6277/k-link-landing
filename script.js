@@ -19,7 +19,8 @@ const demoData = {
         { id: 'ORD-CORTIS-013', name: 'dreamy_eyes', item: 'Color Outside the Lines Album', qty: 1, amount: 450, wishes: '1.Juhoon / 2.Seonghyeon', status: '待對帳', time: '' },
         { id: 'ORD-CORTIS-014', name: 'magic_shop', item: 'Color Outside the Lines Album', qty: 2, amount: 900, wishes: '1.Seonghyeon / 2.Keonho', status: '待對帳', time: '' }
     ],
-    reconciled: false
+    reconciled: false,
+    sorted: false
 };
 
 // Demo UI Controller
@@ -60,48 +61,127 @@ const demoUI = {
         if (section.classList.contains('hidden')) {
             section.classList.remove('hidden');
             icon.setAttribute('data-lucide', 'chevron-up');
+            // Update revenue stats when showing orders
+            this.updateRevenueStats();
         } else {
             section.classList.add('hidden');
             icon.setAttribute('data-lucide', 'chevron-down');
         }
         lucide.createIcons();
+        
+        // Hide scroll hint after user scrolls the table
+        setTimeout(() => {
+            const scrollContainer = document.querySelector('.demo-table-scroll');
+            if (scrollContainer) {
+                const scrollHint = scrollContainer.parentElement.querySelector('.md\\:hidden');
+                if (scrollHint && scrollHint.textContent.includes('左右滑動')) {
+                    let hasScrolled = false;
+                    scrollContainer.addEventListener('scroll', () => {
+                        if (!hasScrolled && scrollContainer.scrollLeft > 10) {
+                            hasScrolled = true;
+                            scrollHint.style.transition = 'opacity 0.3s';
+                            scrollHint.style.opacity = '0';
+                            setTimeout(() => {
+                                scrollHint.style.display = 'none';
+                            }, 300);
+                        }
+                    }, { once: false });
+                }
+            }
+        }, 100);
+    },
+    updateRevenueStats() {
+        // Calculate total revenue from all orders
+        const totalAmount = demoData.orders.reduce((sum, order) => sum + order.amount, 0);
+        const paidAmount = demoData.reconciled ? totalAmount : 0;
+        const unpaidAmount = demoData.reconciled ? 0 : totalAmount;
+        
+        const revenueStats = document.querySelectorAll('.grid.grid-cols-3 .bg-white');
+        if (revenueStats.length >= 3) {
+            // Update 總營收 (first card)
+            const totalCard = revenueStats[0];
+            const totalValue = totalCard.querySelector('p.text-lg, p.text-2xl');
+            if (totalValue) {
+                totalValue.textContent = `NT$ ${totalAmount.toLocaleString()}`;
+            }
+            // Update 已收款 (second card)
+            const paidCard = revenueStats[1];
+            const paidValue = paidCard.querySelector('p.text-lg, p.text-2xl');
+            if (paidValue) {
+                paidValue.textContent = `NT$ ${paidAmount.toLocaleString()}`;
+            }
+            // Update 待收款 (third card)
+            const unpaidCard = revenueStats[2];
+            const unpaidValue = unpaidCard.querySelector('p.text-lg, p.text-2xl');
+            if (unpaidValue) {
+                unpaidValue.textContent = `NT$ ${unpaidAmount.toLocaleString()}`;
+            }
+        }
     },
     renderOrders() {
         const tbody = document.getElementById('demo-orders-table-body');
         tbody.innerHTML = demoData.orders.map(order => `
             <tr class="hover:bg-gray-50/50 transition-colors" data-id="${order.id}">
-                <td class="px-8 py-4">
-                    <p class="font-black text-gray-900">${order.name}</p>
+                <td class="pl-4 pr-3 md:px-8 py-2 md:py-4 sticky left-0 bg-white z-10 border-r border-gray-100">
+                    <p class="text-xs md:text-sm font-black text-gray-900">${order.name}</p>
                 </td>
-                <td class="px-8 py-4">
-                    <p class="text-sm font-medium text-gray-700">${order.item}${order.qty > 1 ? ` x${order.qty}` : ''}</p>
+                <td class="px-3 md:px-8 py-2 md:py-4">
+                    <p class="text-xs md:text-sm font-medium text-gray-700">${order.item}${order.qty > 1 ? ` x${order.qty}` : ''}</p>
                 </td>
-                <td class="px-8 py-4">
-                    <p class="font-black text-gray-900">NT$ ${order.amount}</p>
+                <td class="px-3 md:px-8 py-2 md:py-4">
+                    <p class="text-xs md:text-sm font-black text-gray-900">NT$ ${order.amount}</p>
                 </td>
-                <td class="px-8 py-4">
+                <td class="px-3 md:px-8 py-2 md:py-4">
                     ${order.assigned ? 
                         `<div>
-                            <p class="text-xs text-gray-400 mb-1">${order.wishes}</p>
-                            <p class="text-sm font-black text-lilac-500">✓ 已分配: ${order.assigned}</p>
+                            <p class="text-[10px] md:text-xs text-gray-400 mb-1">${order.wishes}</p>
+                            <p class="text-xs md:text-sm font-black text-lilac-500">✓ 已分配: ${order.assigned}</p>
                         </div>` :
-                        `<p class="text-sm font-medium text-lilac-500">${order.wishes}</p>`
+                        `<p class="text-xs md:text-sm font-medium text-lilac-500">${order.wishes}</p>`
                     }
                 </td>
-                <td class="px-8 py-4 text-center">
-                    <span class="px-3 py-1 rounded-lg text-[10px] font-black uppercase ${
+                <td class="px-3 md:px-8 py-2 md:py-4 text-center">
+                    <span class="px-2 md:px-3 py-0.5 md:py-1 rounded-lg text-[9px] md:text-[10px] font-black uppercase ${
                         order.status === '已配位' ? 'bg-lilac-50 text-lilac-500' :
                         order.status === '已對帳' ? 'bg-green-50 text-green-500' : 
                         'bg-amber-50 text-amber-500'
                     }">${order.status}</span>
                 </td>
-                <td class="px-8 py-4">
-                    <p class="text-xs font-bold text-gray-400">${order.time || '-'}</p>
+                <td class="px-3 md:px-8 py-2 md:py-4">
+                    <p class="text-[10px] md:text-xs font-bold text-gray-400">${order.time || '-'}</p>
                 </td>
             </tr>
         `).join('');
+        lucide.createIcons();
+        
+        // Hide scroll hint after user scrolls the table
+        setTimeout(() => {
+            const scrollContainer = document.querySelector('.demo-table-scroll');
+            if (scrollContainer) {
+                const scrollHint = scrollContainer.parentElement.querySelector('.md\\:hidden');
+                if (scrollHint && scrollHint.textContent.includes('左右滑動')) {
+                    let hasScrolled = false;
+                    scrollContainer.addEventListener('scroll', () => {
+                        if (!hasScrolled && scrollContainer.scrollLeft > 10) {
+                            hasScrolled = true;
+                            scrollHint.style.transition = 'opacity 0.3s';
+                            scrollHint.style.opacity = '0';
+                            setTimeout(() => {
+                                scrollHint.style.display = 'none';
+                            }, 300);
+                        }
+                    }, { once: false });
+                }
+            }
+        }, 100);
     },
     openReconciliationModal() {
+        // Check if already reconciled
+        if (demoData.reconciled) {
+            this.showAlreadyReconciledAlert();
+            return;
+        }
+        
         const modal = document.getElementById('demo-reconcile-modal');
         modal.classList.remove('hidden');
         modal.classList.add('flex');
@@ -109,6 +189,21 @@ const demoUI = {
         
         // Setup upload area click
         document.getElementById('demo-upload-area').onclick = () => this.startUpload();
+    },
+    showAlreadyReconciledAlert() {
+        const modal = document.getElementById('demo-reconcile-alert-modal');
+        if (modal) {
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            lucide.createIcons();
+        }
+    },
+    closeReconcileAlert() {
+        const modal = document.getElementById('demo-reconcile-alert-modal');
+        if (modal) {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
     },
     closeReconcileModal() {
         const modal = document.getElementById('demo-reconcile-modal');
@@ -152,11 +247,38 @@ const demoUI = {
         
         // Update orders with reconciliation
         const times = ['2025-12-27 10:15', '2025-12-27 10:32', '2025-12-27 11:05', '2025-12-27 11:18', '2025-12-27 11:45', '2025-12-27 12:10', '2025-12-27 12:33', '2025-12-27 13:02', '2025-12-27 13:25', '2025-12-27 13:48', '2025-12-27 14:12', '2025-12-27 14:35', '2025-12-27 15:01', '2025-12-27 15:22'];
+        let totalAmount = 0;
         demoData.orders.forEach((order, index) => {
             order.status = '已對帳';
             order.time = times[index] || '';
+            totalAmount += order.amount;
         });
         demoData.reconciled = true;
+        
+        // Update revenue stats
+        const paidAmount = totalAmount; // All orders are now reconciled
+        const unpaidAmount = 0;
+        const revenueStats = document.querySelectorAll('.grid.grid-cols-3 .bg-white');
+        if (revenueStats.length >= 3) {
+            // Update 總營收 (first card) - should match totalAmount
+            const totalCard = revenueStats[0];
+            const totalValue = totalCard.querySelector('p.text-lg, p.text-2xl');
+            if (totalValue) {
+                totalValue.textContent = `NT$ ${totalAmount.toLocaleString()}`;
+            }
+            // Update 已收款 (second card)
+            const paidCard = revenueStats[1];
+            const paidValue = paidCard.querySelector('p.text-lg, p.text-2xl');
+            if (paidValue) {
+                paidValue.textContent = `NT$ ${totalAmount.toLocaleString()}`;
+            }
+            // Update 待收款 (third card)
+            const unpaidCard = revenueStats[2];
+            const unpaidValue = unpaidCard.querySelector('p.text-lg, p.text-2xl');
+            if (unpaidValue) {
+                unpaidValue.textContent = `NT$ ${unpaidAmount.toLocaleString()}`;
+            }
+        }
         
         // Update UI
         this.renderOrders();
@@ -169,12 +291,51 @@ const demoUI = {
         modal.classList.add('hidden');
         modal.classList.remove('flex');
     },
+    showAlreadySortedAlert() {
+        const modal = document.getElementById('demo-already-sorted-modal');
+        if (modal) {
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            lucide.createIcons();
+        }
+    },
+    closeAlreadySortedAlert() {
+        const modal = document.getElementById('demo-already-sorted-modal');
+        if (modal) {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+    },
+    showAlreadySortedAlert() {
+        const modal = document.getElementById('demo-already-sorted-modal');
+        if (modal) {
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            lucide.createIcons();
+        }
+    },
+    closeAlreadySortedAlert() {
+        const modal = document.getElementById('demo-already-sorted-modal');
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+    },
+    closeReconcileAlert() {
+        const modal = document.getElementById('demo-reconcile-alert-modal');
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+    },
     runSorting() {
         if (!demoData.reconciled) {
             const modal = document.getElementById('demo-sort-alert-modal');
             modal.classList.remove('hidden');
             modal.classList.add('flex');
             lucide.createIcons();
+            return;
+        }
+        
+        // Check if already sorted
+        if (demoData.sorted) {
+            this.showAlreadySortedAlert();
             return;
         }
         
@@ -188,6 +349,7 @@ const demoUI = {
         
         const processOrder = (index) => {
             if (index >= total) {
+                demoData.sorted = true;
                 btn.disabled = false;
                 btn.innerHTML = '<i data-lucide="sparkles" class="w-4 h-4"></i><span>執行配位</span>';
                 

@@ -127,3 +127,67 @@ body {
     -webkit-mask-image: linear-gradient(to bottom, black 0%, black 85%, transparent 100%);
 }
 
+/* Demo Table Scroll Styles */
+.demo-table-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(175, 122, 197, 0.3) transparent;
+}
+
+.demo-table-scroll::-webkit-scrollbar {
+    height: 4px;
+}
+
+.demo-table-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.demo-table-scroll::-webkit-scrollbar-thumb {
+    background: rgba(175, 122, 197, 0.3);
+    border-radius: 2px;
+}
+
+.demo-table-scroll::-webkit-scrollbar-thumb:hover {
+    background: rgba(175, 122, 197, 0.5);
+}
+
+/* Hide scroll hint after user scrolls */
+.demo-table-scroll:has(:scroll) ~ .md\\:hidden {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+@media (max-width: 640px) {
+    /* Make first column sticky on mobile */
+    .demo-table-scroll table th:first-child,
+    .demo-table-scroll table td:first-child {
+        position: sticky;
+        left: 0;
+        z-index: 10;
+    }
+    
+    /* Ensure sticky column has background */
+    .demo-table-scroll table thead th:first-child {
+        background: #F8F9F9;
+    }
+    
+    .demo-table-scroll table tbody td:first-child {
+        background: white;
+    }
+    
+    /* Add shadow to sticky column for depth */
+    .demo-table-scroll table th:first-child,
+    .demo-table-scroll table td:first-child {
+        box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05);
+    }
+    
+    /* Ensure sticky column doesn't get cut off */
+    .demo-table-scroll {
+        padding-left: 0;
+    }
+    
+    .demo-table-scroll table th:first-child,
+    .demo-table-scroll table td:first-child {
+        min-width: 80px;
+    }
+}
+
