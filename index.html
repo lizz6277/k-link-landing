@@ -6,8 +6,8 @@
     <title>K-Link Pro | 專業代購自動化管理系統 - 節省 80% 工作流</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="專為 K-pop 代購與各類團購主設計。提供一鍵自動對帳、智慧小卡配位、買家進度私密查詢及自動化郵件通知。徹底告別 Excel 手動對帳地獄，讓代購回歸自動導航。">
-    <meta name="keywords" content="代購系統, 自動對帳, 小卡配位, 團購管理, K-pop代購工具, 買家查詢系統, 寄信通知">
+    <meta name="description" content="專為日韓周邊、美妝、精品代購與各類團購主設計。提供一鍵自動對帳、買家進度私密查詢及自動化郵件通知。徹底告別手動對帳地獄，讓代購輕鬆自動化。">
+    <meta name="keywords" content="代購系統, 自動對帳, 團購管理, 買家查詢系統, 寄信通知, 周邊商品代購, 精品代購, 美妝代購, 團購管理工具">
     <meta name="author" content="K-Link Pro">
     <link rel="canonical" href="https://k-link-landing.vercel.app">
     
@@ -15,14 +15,19 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://k-link-landing.vercel.app">
     <meta property="og:title" content="K-Link Pro | 讓代購回歸「自動導航」">
-    <meta property="og:description" content="不再為對帳與配位熬夜！一鍵處理繁瑣事務，提升 3 倍管理效率。">
+    <meta property="og:description" content="不再為對帳與重複工作熬夜！一鍵處理繁瑣事務，提升 3 倍管理效率。">
     <meta property="og:image" content="https://rppl0rsu6jd4zda6.public.blob.vercel-storage.com/K-Link%20Pro_OG.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="K-Link Pro - 專業代購自動化管理系統">
+    <meta property="og:site_name" content="K-Link Pro">
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="K-Link Pro | 專業代購自動化管理系統">
-    <meta name="twitter:description" content="解決對帳緩慢與個資洩漏問題，專屬代購主的雲端指揮中心。">
+    <meta name="twitter:description" content="解決對帳緩慢與個資洩漏問題，專為所有代購主打造的雲端指揮中心。">
     <meta name="twitter:image" content="https://rppl0rsu6jd4zda6.public.blob.vercel-storage.com/K-Link%20Pro_OG.png">
+    <meta name="twitter:image:alt" content="K-Link Pro - 專業代購自動化管理系統">
     
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -37,12 +42,12 @@
         "price": "0",
         "priceCurrency": "TWD"
       },
-      "description": "專業代購自動化管理系統，提供對帳、小卡配位與買家查詢功能。",
+      "description": "專業代購自動化管理系統，提供對帳、買家查詢與自動化郵件通知功能。",
       "featureList": [
         "自動化對帳系統",
-        "智慧小卡配位算法",
         "買家進度查詢入口",
-        "一鍵郵件通知功能"
+        "一鍵郵件通知功能",
+        "Google Sheet 資料匯入"
       ]
     }
     </script>
@@ -92,7 +97,7 @@
 <body class="bg-surface overflow-x-hidden">
 
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 apple-blur bg-white/70 border-b border-gray-100">
+    <nav id="nav" class="fixed top-0 w-full z-50 apple-blur bg-white/70 border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-2">
                 <div class="w-8 h-8 bg-lilac-200 rounded-lg flex items-center justify-center shadow-lilac-glow">
@@ -141,13 +146,13 @@
         <div class="max-w-5xl mx-auto text-center relative z-10 fade-in">
             <div class="inline-flex items-center space-x-2 bg-lilac-50 px-4 py-2 rounded-full border border-lilac-100 mb-8">
                 <span class="w-2 h-2 bg-lilac-400 rounded-full animate-pulse"></span>
-                <span class="text-[10px] font-black text-lilac-500 uppercase tracking-widest">Next-Gen Proxy Management</span>
+                <span class="text-[10px] font-black text-lilac-500 uppercase tracking-widest">代購對帳/管理自動化</span>
             </div>
             <h1 class="text-5xl md:text-7xl font-black tracking-tighter leading-[1.1] mb-8 gradient-text">
-                省下 80% 的工作時間<br>讓代購回歸「自動導航」
+                大幅節省工作時間<br>讓代購回歸「輕鬆賺錢」
             </h1>
             <p class="text-xl text-white max-w-2xl mx-auto font-medium mb-12">
-                導入 Google Sheet 即時同步訂單數據，一鍵完成銀行對帳和多項耗時工作。<br>專為追求極致效率的專業代購主打造。
+                專為日韓周邊、美妝、精品代購主打造的專業管理系統<br>一鍵完成銀行對帳和多項耗時工作。
             </p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a href="#cta" class="w-full sm:w-auto bg-dark text-white text-lg px-10 py-5 rounded-3xl font-bold shadow-premium hover:bg-lilac-600 transition-all transform hover:scale-105 text-center">
@@ -166,10 +171,10 @@
             <div class="grid md:grid-cols-2 gap-16 items-center">
                 <div class="space-y-6">
                     <h2 class="text-4xl font-black tracking-tight leading-tight">
-                        厭倦了混亂的 Excel <br>與深夜的手動配位嗎？
+                        厭倦了混亂的手動對帳<br>與深夜回不完的訊息嗎？
                     </h2>
                     <p class="text-lg text-gray-400 font-medium">
-                        傳統代購流程充斥著破碎的資訊：龐大又難以維護的試算表、對不起來的銀行後五碼，還有讓人崩潰的小卡隨機配位工作。
+                        傳統代購流程充斥著破碎的資訊：龐大又難以維護的試算表、對不起來的銀行後五碼，還有讓人崩潰的重複工作。
                     </p>
                     <div class="space-y-4">
                         <div class="flex items-start space-x-3">
@@ -182,7 +187,7 @@
                         </div>
                         <div class="flex items-start space-x-3">
                             <div class="mt-1 bg-red-50 p-1 rounded-full"><i data-lucide="x" class="w-4 h-4 text-red-400"></i></div>
-                            <span class="text-gray-600 font-semibold">複雜的小卡排序工作</span>
+                            <span class="text-gray-600 font-semibold">回不完的私訊詢問</span>
                         </div>
                     </div>
                 </div>
@@ -441,7 +446,7 @@
     <section id="features" class="py-12 md:py-24 px-4 md:px-6 bg-white">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-8 md:mb-16">
-                <h2 class="text-2xl md:text-4xl font-black mb-4 tracking-tight">五個關鍵功能，重塑管理效率</h2>
+                <h2 class="text-2xl md:text-4xl font-black mb-4 tracking-tight">四個關鍵功能，重塑管理效率</h2>
                 <p class="text-sm md:text-base text-gray-400 font-medium">優雅、快速且極度自動化</p>
             </div>
             
@@ -468,32 +473,13 @@
                     </button>
                     
                     <button 
-                        onclick="featureTabs.switchTab('sorting')" 
-                        id="tab-sorting"
-                        class="feature-tab w-full p-4 md:p-6 rounded-xl md:rounded-2xl border-2 border-gray-100 bg-white hover:border-lilac-300 hover:shadow-soft transition-all text-left group"
-                        data-tab="sorting"
-                    >
-                        <div class="flex items-center space-x-3 md:space-x-4">
-                            <div class="w-10 h-10 md:w-14 md:h-14 bg-amber-50 text-amber-500 rounded-xl md:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform flex-shrink-0">
-                                <i data-lucide="sparkles" class="w-5 h-5 md:w-7 md:h-7"></i>
-                            </div>
-                            <div class="flex-1 min-w-0">
-                                <h3 class="text-lg md:text-xl font-black mb-1 md:mb-2">小卡配位</h3>
-                                <p class="text-xs md:text-sm text-gray-400 font-medium leading-relaxed">
-                                    獨家算法模型，基於下單順序與志願序，自動完成最公平的配位
-                                </p>
-                            </div>
-                        </div>
-                    </button>
-                    
-                    <button 
                         onclick="featureTabs.switchTab('notification')" 
                         id="tab-notification"
                         class="feature-tab w-full p-4 md:p-6 rounded-xl md:rounded-2xl border-2 border-gray-100 bg-white hover:border-lilac-300 hover:shadow-soft transition-all text-left group"
                         data-tab="notification"
                     >
                         <div class="flex items-center space-x-3 md:space-x-4">
-                            <div class="w-10 h-10 md:w-14 md:h-14 bg-purple-50 text-purple-500 rounded-xl md:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform flex-shrink-0">
+                            <div class="w-10 h-10 md:w-14 md:h-14 bg-pink-50 text-pink-500 rounded-xl md:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform flex-shrink-0">
                                 <i data-lucide="mail" class="w-5 h-5 md:w-7 md:h-7"></i>
                             </div>
                             <div class="flex-1 min-w-0">
@@ -518,7 +504,7 @@
                             <div class="flex-1 min-w-0">
                                 <h3 class="text-lg md:text-xl font-black mb-1 md:mb-2">一鍵匯入</h3>
                                 <p class="text-xs md:text-sm text-gray-400 font-medium leading-relaxed">
-                                    深度整合 Google Forms，買家下單瞬間數據即刻進入系統
+                                    輕鬆導入Google Sheet資料，數據即刻進入系統
                                 </p>
                             </div>
                         </div>
@@ -537,7 +523,7 @@
                             <div class="flex-1 min-w-0">
                                 <h3 class="text-lg md:text-xl font-black mb-1 md:mb-2">買家查詢</h3>
                                 <p class="text-xs md:text-sm text-gray-400 font-medium leading-relaxed">
-                                    買家可隨時查詢訂單進度、物流狀態與小卡配位結果
+                                    買家可隨時查詢訂單進度、物流狀態，也可直接進行二補下單
                                 </p>
                             </div>
                         </div>
@@ -588,6 +574,73 @@
                                 只需上傳銀行 CSV 明細，系統會自動比對後五碼與金額，準確率達 99.9%，一秒完成百筆訂單確認。
                             </p>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Feature: Card Sorting -->
+    <section class="py-12 md:py-24 px-4 md:px-6 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-8 md:mb-16">
+                <div class="inline-flex items-center space-x-2 bg-amber-50 px-4 py-2 rounded-full border border-amber-100 mb-4">
+                    <span class="text-xs font-black text-amber-600 uppercase tracking-widest">特殊功能</span>
+                </div>
+                <h2 class="text-2xl md:text-4xl font-black mb-4 tracking-tight">小卡配位系統</h2>
+                <p class="text-sm md:text-base text-gray-400 font-medium max-w-2xl mx-auto">
+                    專為 K-pop 拆卡團、盲盒抽賞、連線商品分配等有「配位」需求的團購而設計的智慧分配系統
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-6 md:gap-12 items-center">
+                <!-- Left: Description -->
+                <div class="space-y-6">
+                    <div class="bg-white p-6 md:p-8 rounded-2xl md:rounded-3xl border border-gray-100 shadow-soft">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="w-14 h-14 md:w-16 md:h-16 bg-amber-50 text-amber-500 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="sparkles" class="w-7 h-7 md:w-8 md:h-8"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl md:text-2xl font-black mb-2">智慧配位算法</h3>
+                                <p class="text-sm md:text-base text-gray-400 font-medium">
+                                    獨家開發的算法模型，基於下單順序與志願序，自動完成最公平的配位工作
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="mt-1 bg-amber-50 p-1 rounded-full"><i data-lucide="check" class="w-4 h-4 text-amber-500"></i></div>
+                            <span class="text-gray-600 font-medium">嚴格遵循付款順序與買家志願序</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="mt-1 bg-amber-50 p-1 rounded-full"><i data-lucide="check" class="w-4 h-4 text-amber-500"></i></div>
+                            <span class="text-gray-600 font-medium">自動計算最佳分配路徑，公正公開</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="mt-1 bg-amber-50 p-1 rounded-full"><i data-lucide="check" class="w-4 h-4 text-amber-500"></i></div>
+                            <span class="text-gray-600 font-medium">產出透明的配位結果清單，減少人為操作</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right: Video -->
+                <div class="bg-white rounded-2xl md:rounded-3xl p-4 md:p-8 border border-gray-100 shadow-premium overflow-hidden">
+                    <div class="relative w-full bg-gray-100 shadow-soft rounded-xl md:rounded-2xl overflow-hidden" style="aspect-ratio: 16/10;">
+                        <video 
+                            class="w-full h-full object-cover"
+                            autoplay
+                            muted
+                            loop
+                            playsinline
+                            preload="auto"
+                            crossorigin="anonymous"
+                        >
+                            <source src="https://rppl0rsu6jd4zda6.public.blob.vercel-storage.com/klink_demo_sorting.mp4" type="video/mp4">
+                            您的瀏覽器不支援 HTML5 影片標籤
+                        </video>
                     </div>
                 </div>
             </div>
@@ -664,7 +717,7 @@
                                         <i data-lucide="command" class="w-6 h-6 md:w-8 md:h-8"></i>
                                     </div>
                                     <h3 class="text-lg md:text-2xl font-black mb-2 md:mb-3">賣家端體驗</h3>
-                                    <p class="text-sm md:text-base text-gray-400 font-medium">管理專案、對帳與小卡配位</p>
+                                    <p class="text-sm md:text-base text-gray-400 font-medium">管理專案、對帳與訂單追蹤</p>
                                 </button>
                             </div>
                         </div>
@@ -735,7 +788,7 @@
                             <div class="grid grid-cols-3 gap-2 md:gap-4 mb-6 md:mb-10">
                                 <div class="bg-white p-3 md:p-6 rounded-xl md:rounded-2xl border border-gray-100 shadow-soft">
                                     <p class="text-[10px] md:text-xs font-black text-gray-400 uppercase mb-1 md:mb-2 tracking-widest">總營收</p>
-                                    <p class="text-lg md:text-2xl font-black text-gray-900">NT$ 10,350</p>
+                                    <p class="text-lg md:text-2xl font-black text-gray-900">NT$ 19,150</p>
                                 </div>
                                 <div class="bg-white p-3 md:p-6 rounded-xl md:rounded-2xl border border-gray-100 shadow-soft">
                                     <p class="text-[10px] md:text-xs font-black text-gray-400 uppercase mb-1 md:mb-2 tracking-widest">已收款</p>
@@ -743,84 +796,15 @@
                                 </div>
                                 <div class="bg-white p-3 md:p-6 rounded-xl md:rounded-2xl border border-gray-100 shadow-soft">
                                     <p class="text-[10px] md:text-xs font-black text-gray-400 uppercase mb-1 md:mb-2 tracking-widest">待收款</p>
-                                    <p class="text-lg md:text-2xl font-black text-amber-500">NT$ 10,350</p>
+                                    <p class="text-lg md:text-2xl font-black text-amber-500">NT$ 19,150</p>
                                 </div>
                             </div>
 
                             <!-- Recent Projects -->
                             <div class="mb-6 md:mb-8">
                                 <h4 class="text-base md:text-lg font-black mb-3 md:mb-4">近期專案</h4>
-                                <div class="bg-white rounded-2xl md:rounded-3xl p-4 md:p-8 shadow-soft border border-gray-100">
-                                    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                                        <div class="flex items-start md:items-center space-x-3 md:space-x-4 flex-1 min-w-0">
-                                            <div class="w-12 h-12 md:w-16 md:h-16 bg-lilac-50 text-lilac-400 rounded-xl md:rounded-2xl flex items-center justify-center shadow-lilac-glow flex-shrink-0">
-                                                <i data-lucide="package" class="w-6 h-6 md:w-8 md:h-8"></i>
-                                            </div>
-                                            <div class="flex-1 min-w-0">
-                                                <div class="flex flex-wrap items-center gap-2 mb-2">
-                                                    <span class="px-2 md:px-3 py-1 bg-lilac-50 text-lilac-500 text-[10px] font-black uppercase rounded-lg">開團中</span>
-                                                    <h4 class="text-base md:text-xl font-black text-gray-900 break-words">CORTIS 1st Mini Album [Color Outside the Lines]</h4>
-                                                </div>
-                                                <p class="text-xs md:text-sm text-gray-400 font-medium mb-1 md:mb-2">CORTIS 出道首張迷你專輯！包含首批限定海報與通路特典小卡。</p>
-                                                <p class="text-[10px] md:text-xs text-gray-400 font-bold">14 筆訂單 · 待收款 NT$ 10,350</p>
-                                            </div>
-                                        </div>
-                                        <button onclick="demoUI.showProjectOrders()" id="demo-project-toggle" class="w-full md:w-auto px-4 md:px-6 py-2.5 md:py-3 bg-dark text-white rounded-xl md:rounded-2xl text-sm md:text-base font-black hover:bg-lilac-600 transition-all flex items-center justify-center space-x-2">
-                                            <i data-lucide="chevron-down" class="w-4 h-4" id="demo-toggle-icon"></i>
-                                            <span>查看訂單</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Orders Table -->
-                            <div id="demo-orders-section" class="hidden bg-white rounded-2xl md:rounded-3xl shadow-soft border border-gray-100 overflow-hidden mb-6 md:mb-8">
-                                <div class="px-4 md:px-8 py-4 md:py-6 border-b border-gray-100 flex flex-col md:flex-row md:justify-between md:items-center gap-4 bg-gray-50/30">
-                                    <div>
-                                        <h4 class="text-base md:text-lg font-black">訂單列表</h4>
-                                        <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1">共 <span id="demo-order-count">14</span> 筆訂單</p>
-                                    </div>
-                                    <div class="flex flex-wrap gap-2 md:space-x-3">
-                                        <button onclick="demoUI.openReconciliationModal()" id="demo-reconcile-btn" class="flex-1 md:flex-none px-3 md:px-5 py-2 md:py-2.5 bg-dark text-white rounded-lg md:rounded-xl text-xs md:text-sm font-black hover:bg-lilac-600 transition-all flex items-center justify-center space-x-1 md:space-x-2">
-                                            <i data-lucide="check-circle" class="w-3 h-3 md:w-4 md:h-4"></i>
-                                            <span class="whitespace-nowrap">執行對帳</span>
-                                        </button>
-                                        <button onclick="demoUI.runSorting()" id="demo-sort-btn" class="flex-1 md:flex-none px-3 md:px-5 py-2 md:py-2.5 bg-dark text-white rounded-lg md:rounded-xl text-xs md:text-sm font-black hover:bg-lilac-600 transition-all flex items-center justify-center space-x-1 md:space-x-2">
-                                            <i data-lucide="sparkles" class="w-3 h-3 md:w-4 md:h-4"></i>
-                                            <span class="whitespace-nowrap">執行配位</span>
-                                        </button>
-                                        <button onclick="demoUI.openNotificationModal()" id="demo-notification-btn" class="flex-1 md:flex-none px-3 md:px-5 py-2 md:py-2.5 bg-dark text-white rounded-lg md:rounded-xl text-xs md:text-sm font-black hover:bg-lilac-600 transition-all flex items-center justify-center space-x-1 md:space-x-2">
-                                            <i data-lucide="mail" class="w-3 h-3 md:w-4 md:h-4"></i>
-                                            <span class="whitespace-nowrap">寄送通知</span>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="relative">
-                                    <!-- Scroll hint for mobile -->
-                                    <div class="md:hidden absolute top-2 right-4 z-10 flex items-center space-x-1 bg-lilac-100/90 backdrop-blur-sm px-2 py-1 rounded-full">
-                                        <i data-lucide="chevrons-right" class="w-3 h-3 text-lilac-600 animate-pulse"></i>
-                                        <span class="text-[10px] font-bold text-lilac-600">左右滑動查看更多</span>
-                                    </div>
-                                    <!-- Scrollable table container with gradient fade -->
-                                    <div class="overflow-x-auto md:mx-0 relative demo-table-scroll">
-                                        <table class="w-full text-left min-w-[600px] md:min-w-0">
-                                            <thead>
-                                                <tr class="bg-surface/50 text-[9px] md:text-[10px] font-black text-gray-300 uppercase tracking-[2px]">
-                                                    <th class="pl-4 pr-3 md:px-8 py-2 md:py-4 sticky left-0 bg-surface/50 z-10">買家</th>
-                                                    <th class="px-3 md:px-8 py-2 md:py-4">商品項目</th>
-                                                    <th class="px-3 md:px-8 py-2 md:py-4">金額</th>
-                                                    <th class="px-3 md:px-8 py-2 md:py-4">小卡志願</th>
-                                                    <th class="px-3 md:px-8 py-2 md:py-4 text-center">狀態</th>
-                                                    <th class="px-3 md:px-8 py-2 md:py-4">匯款時間</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody class="divide-y divide-gray-50" id="demo-orders-table-body">
-                                                <!-- Orders will be inserted here -->
-                                            </tbody>
-                                        </table>
-                                        <!-- Right fade gradient to indicate scrollable -->
-                                        <div class="md:hidden absolute top-0 right-0 w-16 h-full pointer-events-none bg-gradient-to-l from-white to-transparent"></div>
-                                    </div>
+                                <div id="demo-projects-list" class="space-y-4">
+                                    <!-- Projects will be rendered here -->
                                 </div>
                             </div>
                         </div>
@@ -837,13 +821,18 @@
             <h2 class="text-3xl md:text-4xl font-black text-center mb-12 tracking-tight">常見問題</h2>
             <div class="space-y-6">
                 <div class="border-b border-gray-200 pb-6">
+                    <h3 class="text-xl font-black mb-3 text-gray-900">Q: K-Link Pro 只有 K-pop 代購主能用嗎？</h3>
+                    <p class="text-gray-600 font-medium leading-relaxed">完全不是！K-Link Pro 專為所有類型的代購主設計，包括日韓周邊、美妝、精品等各類團購。只要您有「分階段收款」與「自動對帳」的需求，無論是代購什麼商品，K-Link Pro 都能成為您的最佳助手。系統中的「小卡配位」功能是特別為 K-pop 拆卡團或有配位需求的團購而設計的特殊功能，但這不影響其他類型代購主使用系統的核心功能。</p>
+                </div>
+
+                <div class="border-b border-gray-200 pb-6">
                     <h3 class="text-xl font-black mb-3 text-gray-900">Q: K-Link Pro 如何實現「自動對帳」？</h3>
                     <p class="text-gray-600 font-medium leading-relaxed">系統支援匯入銀行CSV明細，透過系統比對金額與帳號後五碼，準確率達 99.9%，原本數小時的工作量僅需 1 分鐘即可完成。</p>
                 </div>
 
                 <div class="border-b border-gray-200 pb-6">
-                    <h3 class="text-xl font-black mb-3 text-gray-900">Q: 「小卡配位」的公平性如何保證？</h3>
-                    <p class="text-gray-600 font-medium leading-relaxed">我們的算法嚴格遵循「付款順序」與「買家志願序」。系統會自動計算最佳分配路徑，並產出透明的配位結果清單，減少人為操作的不透明感。</p>
+                    <h3 class="text-xl font-black mb-3 text-gray-900">Q: 「小卡配位」功能適用於哪些情況？</h3>
+                    <p class="text-gray-600 font-medium leading-relaxed">此功能專為 K-pop 拆卡團、盲盒抽賞、連線商品分配，或其他有「配位」需求的團購而設計。我們的算法嚴格遵循「付款順序」與「買家志願序」，系統會自動計算最佳分配路徑，並產出透明的配位結果清單，減少人為操作的不透明感。</p>
                 </div>
 
                 <div class="border-b border-gray-200 pb-6">
@@ -854,6 +843,21 @@
                 <div class="border-b border-gray-200 pb-6">
                     <h3 class="text-xl font-black mb-3 text-gray-900">Q: 系統可以發送自動郵件通知嗎？</h3>
                     <p class="text-gray-600 font-medium leading-relaxed">可以。系統內建一鍵寄信功能，當您完成對帳、發起二補或包裹到貨時，只需點擊按鈕，系統就會自動向買家發送個人化的電子郵件通知。</p>
+                </div>
+
+                <div class="border-b border-gray-200 pb-6">
+                    <h3 class="text-xl font-black mb-3 text-gray-900">Q: 需要具備技術背景才能使用嗎？</h3>
+                    <p class="text-gray-600 font-medium leading-relaxed">完全不需要！K-Link Pro 設計得非常直觀易用，只要會使用 Google Sheet 就能輕鬆上手。系統提供完整的使用教學和示範，即使沒有技術背景也能快速掌握所有功能。</p>
+                </div>
+
+                <div class="border-b border-gray-200 pb-6">
+                    <h3 class="text-xl font-black mb-3 text-gray-900">Q: 可以同時管理多個團購專案嗎？</h3>
+                    <p class="text-gray-600 font-medium leading-relaxed">當然可以！K-Link Pro 支援同時管理多個團購專案，每個專案都有獨立的訂單列表、對帳記錄和買家查詢系統，讓您能夠輕鬆處理多個代購專案而不會混淆。</p>
+                </div>
+
+                <div class="pb-6">
+                    <h3 class="text-xl font-black mb-3 text-gray-900">Q: 如何開始使用 K-Link Pro？</h3>
+                    <p class="text-gray-600 font-medium leading-relaxed">非常簡單！只需填寫下方的申請表單，我們會在第一時間與您聯繫，提供測試權限並協助您完成系統設定。整個過程完全免費，讓您先體驗系統的強大功能再決定是否正式使用。</p>
                 </div>
             </div>
         </div>
@@ -870,7 +874,7 @@
                 <p class="text-xl text-gray-500 mb-6 max-w-lg mx-auto font-medium">填寫申請表單，第一時間體驗 K-Link Pro 的自動化魔力。</p>
                 <div class="max-w-2xl mx-auto mb-12 px-6 py-4 bg-lilac-50/50 border border-lilac-100 rounded-2xl">
                     <p class="text-sm text-gray-500 font-medium leading-relaxed text-center">
-                        <span class="text-lilac-600 font-bold">不只是 K-pop。</span> 無論是日韓連線、精品代購還是團購主，只要您有<span class="font-bold text-gray-700">「分階段收款」</span>與<span class="font-bold text-gray-700">「自動對帳」</span>的需求，K-Link Pro 都能成為您的最強後盾。
+                        無論是日韓周邊、美妝、精品代購還是各類團購主，只要您有<span class="font-bold text-gray-700">「分階段收款」</span>與<span class="font-bold text-gray-700">「自動對帳」</span>的需求，K-Link Pro 都能成為您的最強後盾。
                     </p>
                 </div>
                 
