@@ -481,6 +481,11 @@ const demoUI = {
         if (orderCountEl) {
             orderCountEl.textContent = demoData.orders.length;
         }
+        // Update matched count in modal
+        const matchedCountEl = document.getElementById('demo-matched-count');
+        if (matchedCountEl) {
+            matchedCountEl.textContent = demoData.orders.length;
+        }
         
         lucide.createIcons();
     },
