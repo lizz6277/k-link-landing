@@ -25,7 +25,7 @@
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="K-Link Pro | 專業代購自動化管理系統">
-    <meta name="twitter:description" content="解決對帳緩慢與個資洩漏問題，專為所有代購主打造的雲端指揮中心。">
+    <meta name="twitter:description" content="解決對帳緩慢與重複作業問題，專為所有代購主打造的雲端指揮中心。">
     <meta name="twitter:image" content="https://rppl0rsu6jd4zda6.public.blob.vercel-storage.com/K-Link%20Pro_OG.png">
     <meta name="twitter:image:alt" content="K-Link Pro - 專業代購自動化管理系統">
     
@@ -48,7 +48,80 @@
         "買家進度查詢入口",
         "一鍵郵件通知功能",
         "Google Sheet 資料匯入"
+      ],
+      "url": "https://k-link-landing.vercel.app",
+      "screenshot": "https://rppl0rsu6jd4zda6.public.blob.vercel-storage.com/K-Link%20Pro_OG.png"
+    }
+    </script>
+    
+    <!-- FAQ Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "K-Link Pro 只有 K-pop 代購主能用嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "完全不是！K-Link Pro 專為所有類型的代購主設計，包括日韓周邊、美妝、精品等各類團購。只要您有「分階段收款」與「自動對帳」的需求，無論是代購什麼商品，K-Link Pro 都能成為您的最佳助手。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "K-Link Pro 如何實現「自動對帳」？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "系統支援匯入銀行CSV明細，透過系統比對金額與帳號後五碼，準確率達 99.9%，原本數小時的工作量僅需 1 分鐘即可完成。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "買家查詢系統會洩露個資嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "絕對不會。買家僅能透過其登記的 Email 或手機號碼查詢「自己」的訂單狀態。相較於公開的 Google Sheet，K-Link Pro 能更有效保護所有人的個資安全。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "系統可以發送自動郵件通知嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可以。系統內建一鍵寄信功能，當您完成對帳、發起二補或包裹到貨時，只需點擊按鈕，系統就會自動向買家發送個人化的電子郵件通知。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "需要具備技術背景才能使用嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "完全不需要！K-Link Pro 設計得非常直觀易用，只要會使用 Google Sheet 就能輕鬆上手。系統提供完整的使用教學和示範，即使沒有技術背景也能快速掌握所有功能。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "可以同時管理多個團購專案嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "當然可以！K-Link Pro 支援同時管理多個團購專案，每個專案都有獨立的訂單列表、對帳記錄和買家查詢系統，讓您能夠輕鬆處理多個代購專案而不會混淆。"
+          }
+        }
       ]
+    }
+    </script>
+    
+    <!-- Organization Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "K-Link Pro",
+      "url": "https://k-link-landing.vercel.app",
+      "logo": "https://rppl0rsu6jd4zda6.public.blob.vercel-storage.com/K-Link%20Pro_OG.png",
+      "description": "專業代購自動化管理系統，提供一鍵自動對帳、買家查詢與自動化郵件通知功能。",
+      "sameAs": []
     }
     </script>
     <!-- Tailwind CSS -->
