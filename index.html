@@ -184,14 +184,14 @@
                 <a href="#demo" class="hover:text-lilac-400 transition-colors">立即體驗</a>
                 <a href="#faq" class="hover:text-lilac-400 transition-colors">常見問題</a>
                 <a href="#cta" class="bg-dark text-white px-6 py-2.5 rounded-full hover:bg-lilac-600 transition-all shadow-premium">
-                    申請測試權限
+                    申請Beta試用
                 </a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="hero" class="relative pt-40 pb-20 px-6 overflow-hidden min-h-[600px] mt-20">
+    <section id="hero" class="relative pt-24 sm:pt-32 md:pt-40 pb-12 sm:pb-16 md:pb-20 px-4 sm:px-6 overflow-hidden min-h-[500px] sm:min-h-[550px] md:min-h-[600px] mt-16 sm:mt-18 md:mt-20">
         <!-- Background Video -->
         <video 
             autoplay 
@@ -199,7 +199,7 @@
             loop 
             playsinline 
             class="absolute inset-0 w-full h-full object-cover"
-            style="z-index: 0; min-height: 100%;"
+            style="z-index: 0; min-height: 100%; filter: blur(2px);"
         >
             <!-- Main MP4 source (best compatibility) -->
             <source src="assets/klink_demo database.mp4" type="video/mp4">
@@ -208,7 +208,7 @@
         </video>
         
         <!-- Light Overlay -->
-        <div class="absolute inset-0 pointer-events-none" style="z-index: 1; background-color: rgba(169, 152, 183, 0.811);"></div>
+        <div class="absolute inset-0 pointer-events-none" style="z-index: 1; background-color: rgba(152, 137, 165, 0.9);"></div>
         
         <!-- Original gradient backgrounds (kept as subtle enhancement) -->
         <div class="absolute inset-0 pointer-events-none" style="z-index: 0; opacity: 0.3;">
@@ -217,315 +217,243 @@
         </div>
         
         <div class="max-w-5xl mx-auto text-center relative z-10 fade-in">
-            <div class="inline-flex items-center space-x-2 bg-lilac-50 px-4 py-2 rounded-full border border-lilac-100 mb-8">
-                <span class="w-2 h-2 bg-lilac-400 rounded-full animate-pulse"></span>
-                <span class="text-[10px] font-black text-lilac-500 uppercase tracking-widest">代購對帳/管理自動化</span>
+            <div class="inline-flex items-center space-x-2 bg-lilac-50 px-3 md:px-4 py-1.5 md:py-2 rounded-full border border-lilac-100 mb-4 md:mb-8">
+                <span class="w-1.5 h-1.5 md:w-2 md:h-2 bg-lilac-400 rounded-full animate-pulse"></span>
+                <span id="hero-badge" class="text-[9px] md:text-[10px] font-black text-lilac-500 uppercase tracking-widest leading-tight">給日韓/kpop/動漫/美妝代購的「對帳＋通知＋查詢」工具</span>
             </div>
-            <h1 class="text-5xl md:text-7xl font-black tracking-tighter leading-[1.1] mb-8 gradient-text">
-                大幅節省工作時間<br>讓代購回歸「輕鬆賺錢」
+            <h1 id="hero-title" class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black tracking-tighter leading-[1.1] mb-6 md:mb-8 gradient-text">
+                把對帳、通知、訂單整理自動化<br>每天少回一堆訊息，提早下班
             </h1>
-            <p class="text-xl text-white max-w-2xl mx-auto font-medium mb-12">
-                專為日韓周邊、美妝、精品代購主打造的專業管理系統<br>一鍵完成銀行對帳和多項耗時工作。
+            <p class="text-base sm:text-lg md:text-xl text-white max-w-2xl mx-auto font-medium mb-8 md:mb-12">
+                K-Link Pro幫你把「收單、對帳、通知、買家查詢」全面自動化。<br>別再讓雜事吃掉妳的利潤與生活。
             </p>
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="#cta" class="w-full sm:w-auto bg-dark text-white text-lg px-10 py-5 rounded-3xl font-bold shadow-premium hover:bg-lilac-600 transition-all transform hover:scale-105 text-center">
-                    立即申請測試權限
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+                <a href="#cta" class="w-full sm:w-auto bg-dark text-white text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-5 rounded-2xl sm:rounded-3xl font-bold shadow-premium hover:bg-lilac-600 transition-all transform hover:scale-105 text-center">
+                    立即申請限量 Beta 試用
                 </a>
-                <a href="#demo" class="w-full sm:w-auto bg-white border border-gray-100 text-gray-600 text-lg px-10 py-5 rounded-3xl font-bold shadow-soft hover:bg-gray-50 transition-all text-center">
-                    立即體驗
+                <a href="#demo" class="w-full sm:w-auto bg-white border border-gray-100 text-gray-600 text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-5 rounded-2xl sm:rounded-3xl font-bold shadow-soft hover:bg-gray-50 transition-all text-center">
+                    先試玩 Demo 體驗
                 </a>
             </div>
+            
+            <!-- Trust Indicators -->
+            <div class="mt-4 md:mt-6 text-center">
+                <p class="text-xs sm:text-sm text-white/80 font-medium px-4">
+                    免安裝｜僅開放 20 位試用｜專人協助導入
+                </p>
+            </div>
+            
+            <!-- Three Key Benefits 
+            <div class="mt-8 md:mt-12 max-w-3xl mx-auto">
+                <div class="grid md:grid-cols-3 gap-3 md:gap-4 lg:gap-6">
+                    <div class="flex items-start space-x-2 md:space-x-3 bg-white/10 backdrop-blur-sm rounded-lg md:rounded-xl p-3 md:p-4 border border-white/20">
+                        <i data-lucide="check-circle" class="w-4 h-4 md:w-5 md:h-5 text-lilac-200 flex-shrink-0 mt-0.5"></i>
+                        <p class="text-xs sm:text-sm md:text-base text-white font-medium leading-relaxed">一鍵寄出「到貨/二補/出貨」通知</p>
+                    </div>
+                    <div class="flex items-start space-x-2 md:space-x-3 bg-white/10 backdrop-blur-sm rounded-lg md:rounded-xl p-3 md:p-4 border border-white/20">
+                        <i data-lucide="check-circle" class="w-4 h-4 md:w-5 md:h-5 text-lilac-200 flex-shrink-0 mt-0.5"></i>
+                        <p class="text-xs sm:text-sm md:text-base text-white font-medium leading-relaxed">買家自助查詢進度，少被問「到了嗎？」</p>
+                    </div>
+                    <div class="flex items-start space-x-2 md:space-x-3 bg-white/10 backdrop-blur-sm rounded-lg md:rounded-xl p-3 md:p-4 border border-white/20">
+                        <i data-lucide="check-circle" class="w-4 h-4 md:w-5 md:h-5 text-lilac-200 flex-shrink-0 mt-0.5"></i>
+                        <p class="text-xs sm:text-sm md:text-base text-white font-medium leading-relaxed">對帳邏輯清楚：未收/已收/待補款一眼看懂</p>
+                    </div>
+                </div>
+            </div>-->
         </div>
     </section>
 
-    <!-- Pain Points -->
-    <section class="py-24 bg-white border-y border-gray-50">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-16 items-center">
-                <div class="space-y-6">
-                    <h2 class="text-4xl font-black tracking-tight leading-tight">
-                        厭倦了混亂的手動對帳<br>與深夜回不完的訊息嗎？
-                    </h2>
-                    <p class="text-lg text-gray-400 font-medium">
-                        傳統代購流程充斥著破碎的資訊：龐大又難以維護的試算表、對不起來的銀行後五碼，還有讓人崩潰的重複工作。
-                    </p>
-                    <div class="space-y-4">
-                        <div class="flex items-start space-x-3">
-                            <div class="mt-1 bg-red-50 p-1 rounded-full"><i data-lucide="x" class="w-4 h-4 text-red-400"></i></div>
-                            <span class="text-gray-600 font-semibold">耗時的手動資料紀錄</span>
-                        </div>
-                        <div class="flex items-start space-x-3">
-                            <div class="mt-1 bg-red-50 p-1 rounded-full"><i data-lucide="x" class="w-4 h-4 text-red-400"></i></div>
-                            <span class="text-gray-600 font-semibold">重複確認銀行明細的低效作業</span>
-                        </div>
-                        <div class="flex items-start space-x-3">
-                            <div class="mt-1 bg-red-50 p-1 rounded-full"><i data-lucide="x" class="w-4 h-4 text-red-400"></i></div>
-                            <span class="text-gray-600 font-semibold">回不完的私訊詢問</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-surface p-8 rounded-[3rem] border border-gray-100 shadow-soft relative overflow-hidden">
-                    <!-- Excel Screenshot with Red X -->
-                    <div class="relative w-full h-full min-h-[450px] bg-white rounded-2xl border-2 border-gray-200 overflow-hidden">
-                        <!-- Excel Grid Background -->
-                        <div class="absolute inset-0 opacity-10">
-                            <div class="grid grid-cols-8 gap-px h-full">
-                                <div class="bg-gray-200"></div>
-                                <div class="bg-gray-100"></div>
-                                <div class="bg-gray-200"></div>
-                                <div class="bg-gray-100"></div>
-                                <div class="bg-gray-200"></div>
-                                <div class="bg-gray-100"></div>
-                                <div class="bg-gray-200"></div>
-                                <div class="bg-gray-100"></div>
-                            </div>
-                        </div>
-                        <!-- Excel Content -->
-                        <div class="relative z-10 h-full overflow-hidden">
-                            <!-- Excel Column Headers (A, B, C...) -->
-                            <div class="flex space-x-1 text-[10px] mb-0.5 px-1 pt-1">
-                                <div class="w-6 bg-gray-100 px-1 py-0.5 rounded font-bold text-center border border-gray-300">A</div>
-                                <div class="flex-1 bg-gray-100 px-1 py-0.5 rounded font-bold text-center border border-gray-300">B</div>
-                                <div class="flex-1 bg-gray-100 px-1 py-0.5 rounded font-bold text-center border border-gray-300">C</div>
-                                <div class="flex-1 bg-gray-100 px-1 py-0.5 rounded font-bold text-center border border-gray-300">D</div>
-                                <div class="flex-1 bg-gray-100 px-1 py-0.5 rounded font-bold text-center border border-gray-300">E</div>
-                                <div class="flex-1 bg-gray-100 px-1 py-0.5 rounded font-bold text-center border border-gray-300">F</div>
-                            </div>
-                            <!-- Excel Green Header Row -->
-                            <div class="flex space-x-1 text-[9px] mb-0.5 px-1">
-                                <div class="w-6 bg-green-600 text-white text-center text-[8px] font-bold py-1 border border-green-700">1</div>
-                                <div class="flex-1 bg-green-600 text-white px-1 py-1 font-bold border border-green-700">姓名</div>
-                                <div class="flex-1 bg-green-600 text-white px-1 py-1 font-bold border border-green-700">金額</div>
-                                <div class="flex-1 bg-green-600 text-white px-1 py-1 font-bold border border-green-700">後五碼</div>
-                                <div class="flex-1 bg-green-600 text-white px-1 py-1 font-bold border border-green-700">時間</div>
-                                <div class="flex-1 bg-green-600 text-white px-1 py-1 font-bold border border-green-700">狀態</div>
-                            </div>
-                            <!-- Excel Data Rows with Scrollable Container -->
-                            <div class="px-1 overflow-y-auto max-h-[380px] excel-data-container">
-                                <div class="space-y-0.5 text-[9px] font-mono">
-                                <div class="flex space-x-1">
-                                    <div class="w-6 text-gray-400 text-center text-[8px]">2</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">yura_012</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">450</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">12345</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">?</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">待對</div>
-                                </div>
-                                <div class="flex space-x-1">
-                                    <div class="w-6 text-gray-400 text-center text-[8px]">3</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">mochi_fan</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">900</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">67890</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">?</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">待對</div>
-                                </div>
-                                <div class="flex space-x-1">
-                                    <div class="w-6 text-gray-400 text-center text-[8px]">4</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">sunshine_99</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">450</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">54321</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">?</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">待對</div>
-                                </div>
-                                <div class="flex space-x-1">
-                                    <div class="w-6 text-gray-400 text-center text-[8px]">5</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">kpop_lover</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">1350</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">98765</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">?</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">待對</div>
-                                </div>
-                                <div class="flex space-x-1">
-                                    <div class="w-6 text-gray-400 text-center text-[8px]">6</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">starry_night</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">450</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">11223</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">?</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">待對</div>
-                                </div>
-                                <div class="flex space-x-1">
-                                    <div class="w-6 text-gray-400 text-center text-[8px]">7</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">blue_ocean</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">900</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">44556</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">?</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">待對</div>
-                                </div>
-                                <div class="flex space-x-1">
-                                    <div class="w-6 text-gray-400 text-center text-[8px]">8</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">mint_choco</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">450</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">77889</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">?</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">待對</div>
-                                </div>
-                                <div class="flex space-x-1">
-                                    <div class="w-6 text-gray-400 text-center text-[8px]">9</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">cherry_blossom</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">900</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">33445</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">?</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">待對</div>
-                                </div>
-                                <div class="flex space-x-1">
-                                    <div class="w-6 text-gray-400 text-center text-[8px]">10</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">winter_bear</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">450</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">66778</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">?</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">待對</div>
-                                </div>
-                                <div class="flex space-x-1">
-                                    <div class="w-6 text-gray-400 text-center text-[8px]">11</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">summer_breeze</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">1350</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">22334</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">?</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">待對</div>
-                                </div>
-                                <div class="flex space-x-1">
-                                    <div class="w-6 text-gray-400 text-center text-[8px]">12</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">cloudy_day</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">450</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">88990</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">?</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">待對</div>
-                                </div>
-                                <div class="flex space-x-1">
-                                    <div class="w-6 text-gray-400 text-center text-[8px]">13</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">sparkle_joy</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">900</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">55667</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">?</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">待對</div>
-                                </div>
-                                <div class="flex space-x-1">
-                                    <div class="w-6 text-gray-400 text-center text-[8px]">14</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">dreamy_eyes</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">450</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">99100</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">?</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">待對</div>
-                                </div>
-                                <div class="flex space-x-1">
-                                    <div class="w-6 text-gray-400 text-center text-[8px]">15</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">magic_shop</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">900</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">77888</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">?</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">待對</div>
-                                </div>
-                                <div class="flex space-x-1">
-                                    <div class="w-6 text-gray-400 text-center text-[8px]">16</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">rainbow_sky</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">450</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">11234</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">?</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">待對</div>
-                                </div>
-                                <div class="flex space-x-1">
-                                    <div class="w-6 text-gray-400 text-center text-[8px]">17</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">golden_hour</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">1350</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">55678</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">?</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">待對</div>
-                                </div>
-                                <div class="flex space-x-1">
-                                    <div class="w-6 text-gray-400 text-center text-[8px]">18</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">midnight_star</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">900</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">99001</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">?</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">待對</div>
-                                </div>
-                                <div class="flex space-x-1">
-                                    <div class="w-6 text-gray-400 text-center text-[8px]">19</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">ocean_wave</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">450</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">22345</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">?</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">待對</div>
-                                </div>
-                                <div class="flex space-x-1">
-                                    <div class="w-6 text-gray-400 text-center text-[8px]">20</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">silver_moon</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">900</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">44567</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">?</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">待對</div>
-                                </div>
-                                <div class="flex space-x-1">
-                                    <div class="w-6 text-gray-400 text-center text-[8px]">21</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">crystal_clear</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">1350</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">66789</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">?</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">待對</div>
-                                </div>
-                                <div class="flex space-x-1">
-                                    <div class="w-6 text-gray-400 text-center text-[8px]">22</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">purple_dream</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">450</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">88901</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">?</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">待對</div>
-                                </div>
-                                <div class="flex space-x-1">
-                                    <div class="w-6 text-gray-400 text-center text-[8px]">23</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">fire_ember</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">900</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">33456</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">?</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">待對</div>
-                                </div>
-                                <div class="flex space-x-1">
-                                    <div class="w-6 text-gray-400 text-center text-[8px]">24</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">wind_whisper</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">450</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">77890</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">?</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">待對</div>
-                                </div>
-                                <div class="flex space-x-1">
-                                    <div class="w-6 text-gray-400 text-center text-[8px]">25</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">diamond_shine</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">1350</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">11235</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">?</div>
-                                    <div class="flex-1 bg-white px-1 py-0.5 rounded border border-gray-200">待對</div>
-                                </div>
-                            </div>
-                            </div>
-                            <!-- Bottom Fade Gradient (Blur Effect) -->
-                            <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none z-20"></div>
-                        </div>
-                        <!-- Big Red X Overlay - Thin and Long -->
-                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-30">
-                            <div class="relative">
-                                <div class="absolute inset-0 bg-red-500/10 blur-xl"></div>
-                                <svg class="w-60 h-60 text-red-500 relative z-10" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     <!-- Tabbed Feature Showcase -->
+    <!-- Pain Points Scenarios Section -->
+    <!-- Problem Section -->
+    <section id="problem" class="py-12 md:py-24 px-4 md:px-6 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-8 md:mb-16">
+                <!--
+                <div class="inline-flex items-center space-x-2 bg-red-50 px-4 py-2 rounded-full border border-red-100 mb-6">
+                    <span class="text-xs font-black text-red-600 uppercase tracking-widest">痛點 (Problem)</span>
+                </div>
+                -->
+                <h2 class="text-2xl md:text-4xl font-black mb-4 tracking-tight">這些「手動地獄」，妳是不是也遇到過？
+                </h2>
+                <p class="text-sm md:text-base text-gray-400 font-medium">代購不是缺努力，是缺一套不需要你每天重做的流程。
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                <!-- Pain Point 1 -->
+                <div class="bg-white rounded-xl md:rounded-2xl p-4 md:p-6 border border-gray-100 shadow-soft hover:shadow-premium transition-all">
+                    <div class="flex items-center justify-center w-12 h-12 bg-red-50 text-red-500 rounded-xl mb-4">
+                        <i data-lucide="message-square" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-black mb-2 text-gray-900">買家狂問進度</h3>
+                    <p class="text-sm text-gray-600 font-medium leading-relaxed">
+                        每天回覆「貨到了嗎？」、「什麼時候出貨？」這種重複性訊息，佔用大量時間，還容易漏回。
+                    </p>
+                </div>
+
+                <!-- Pain Point 2 -->
+                <div class="bg-white rounded-xl md:rounded-2xl p-4 md:p-6 border border-gray-100 shadow-soft hover:shadow-premium transition-all">
+                    <div class="flex items-center justify-center w-12 h-12 bg-red-50 text-red-500 rounded-xl mb-4">
+                        <i data-lucide="file-check" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-black mb-2 text-gray-900">對帳對到半夜</h3>
+                    <p class="text-sm text-gray-600 font-medium leading-relaxed">
+                        每天在對帳、找後五碼、標記已匯/未匯，花費數小時還容易出錯，少收錢或寄錯貨。
+                    </p>
+                </div>
+
+                <!-- Pain Point 3 -->
+                <div class="bg-white rounded-xl md:rounded-2xl p-4 md:p-6 border border-gray-100 shadow-soft hover:shadow-premium transition-all">
+                    <div class="flex items-center justify-center w-12 h-12 bg-red-50 text-red-500 rounded-xl mb-4">
+                        <i data-lucide="copy" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-black mb-2 text-gray-900">通知要一直複製貼上</h3>
+                    <p class="text-sm text-gray-600 font-medium leading-relaxed">
+                        到貨/補款/出貨通知要發很多次，每次都要複製貼上訊息到半夜，還可能發錯人。
+                    </p>
+                </div>
+
+                <!-- Pain Point 4 -->
+                <div class="bg-white rounded-xl md:rounded-2xl p-4 md:p-6 border border-gray-100 shadow-soft hover:shadow-premium transition-all">
+                    <div class="flex items-center justify-center w-12 h-12 bg-red-50 text-red-500 rounded-xl mb-4">
+                        <i data-lucide="folder" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-black mb-2 text-gray-900">多團多品項混在一起</h3>
+                    <p class="text-sm text-gray-600 font-medium leading-relaxed">
+                        多個專案同時進行時，資料混在一起難以區分，找資料要翻半天，容易搞混。
+                    </p>
+                </div>
+
+                <!-- Pain Point 5 -->
+                <div class="bg-white rounded-xl md:rounded-2xl p-4 md:p-6 border border-gray-100 shadow-soft hover:shadow-premium transition-all">
+                    <div class="flex items-center justify-center w-12 h-12 bg-red-50 text-red-500 rounded-xl mb-4">
+                        <i data-lucide="clock" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-black mb-2 text-gray-900">重複工作佔據所有時間</h3>
+                    <p class="text-sm text-gray-600 font-medium leading-relaxed">
+                        每天花在對帳、回覆、整理的時間超過 3 小時，想做更多團卻沒時間。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section id="solution" class="py-12 md:py-24 px-4 md:px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-8 md:mb-16">
+                <!--
+                <div class="inline-flex items-center space-x-2 bg-green-50 px-4 py-2 rounded-full border border-green-100 mb-6">
+                    <span class="text-xs font-black text-green-600 uppercase tracking-widest">解法 (Solution)</span>
+                </div>
+                -->
+                <h2 class="text-2xl md:text-4xl font-black mb-4 tracking-tight">K-Link Pro 如何將手動流程轉為自動化
+                </h2>
+                <p class="text-sm md:text-base text-gray-400 font-medium">一套系統，解決所有重複性工作，讓妳專注在賺錢這件事。
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+                <!-- Left: Before (手動流程) -->
+                <div class="bg-red-50 rounded-2xl md:rounded-3xl p-6 md:p-8 border border-red-100">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-red-500 text-white rounded-xl flex items-center justify-center">
+                            <i data-lucide="x" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl md:text-2xl font-black text-gray-900">手動流程（現在）</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="mt-1 bg-red-100 p-1 rounded-full"><i data-lucide="arrow-down" class="w-4 h-4 text-red-500"></i></div>
+                            <div>
+                                <p class="font-black text-gray-900 mb-1">上傳銀行 CSV</p>
+                                <p class="text-sm text-gray-600 font-medium">手動比對後五碼與金額</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="mt-1 bg-red-100 p-1 rounded-full"><i data-lucide="arrow-down" class="w-4 h-4 text-red-500"></i></div>
+                            <div>
+                                <p class="font-black text-gray-900 mb-1">複製貼上通知</p>
+                                <p class="text-sm text-gray-600 font-medium">到貨/補款/出貨訊息逐一發送</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="mt-1 bg-red-100 p-1 rounded-full"><i data-lucide="arrow-down" class="w-4 h-4 text-red-500"></i></div>
+                            <div>
+                                <p class="font-black text-gray-900 mb-1">回覆買家詢問</p>
+                                <p class="text-sm text-gray-600 font-medium">「到了嗎？」、「什麼時候出貨？」</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="mt-1 bg-red-100 p-1 rounded-full"><i data-lucide="clock" class="w-4 h-4 text-red-500"></i></div>
+                            <div>
+                                <p class="font-black text-gray-900 mb-1">耗時 3-5 小時/天</p>
+                                <p class="text-sm text-gray-600 font-medium">重複性工作佔據所有時間</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: After (自動化流程) -->
+                <div class="bg-green-50 rounded-2xl md:rounded-3xl p-6 md:p-8 border border-green-100">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-green-500 text-white rounded-xl flex items-center justify-center">
+                            <i data-lucide="check" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl md:text-2xl font-black text-gray-900">自動化流程（K-Link Pro）</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="mt-1 bg-green-100 p-1 rounded-full"><i data-lucide="arrow-down" class="w-4 h-4 text-green-500"></i></div>
+                            <div>
+                                <p class="font-black text-gray-900 mb-1">一鍵自動對帳</p>
+                                <p class="text-sm text-gray-600 font-medium">系統自動比對，準確率 99.9%</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="mt-1 bg-green-100 p-1 rounded-full"><i data-lucide="arrow-down" class="w-4 h-4 text-green-500"></i></div>
+                            <div>
+                                <p class="font-black text-gray-900 mb-1">一鍵發送通知</p>
+                                <p class="text-sm text-gray-600 font-medium">到貨/補款/出貨通知自動發送</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="mt-1 bg-green-100 p-1 rounded-full"><i data-lucide="arrow-down" class="w-4 h-4 text-green-500"></i></div>
+                            <div>
+                                <p class="font-black text-gray-900 mb-1">買家自助查詢</p>
+                                <p class="text-sm text-gray-600 font-medium">買家自己查進度，少被問「到了嗎？」</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="mt-1 bg-green-100 p-1 rounded-full"><i data-lucide="zap" class="w-4 h-4 text-green-500"></i></div>
+                            <div>
+                                <p class="font-black text-gray-900 mb-1">省下 2-3 小時/天</p>
+                                <p class="text-sm text-gray-600 font-medium">專注在賺錢與擴大規模</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
     <section id="features" class="py-12 md:py-24 px-4 md:px-6 bg-white">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-8 md:mb-16">
-                <h2 class="text-2xl md:text-4xl font-black mb-4 tracking-tight">四個關鍵功能，重塑管理效率</h2>
-                <p class="text-sm md:text-base text-gray-400 font-medium">優雅、快速且極度自動化</p>
+                <h2 class="text-2xl md:text-4xl font-black mb-4 tracking-tight">先把 4 件最耗時的事解決：對帳、通知、整理、查詢
+                </h2>
+                <p class="text-sm md:text-base text-gray-400 font-medium">不用學一堆複雜功能，專注解決每天都在重複做的工作，立刻省下 2-3 小時。
+                </p>
             </div>
             
-            <div class="grid lg:grid-cols-2 gap-6 md:gap-12 items-start">
-                <!-- Left: Tab Buttons -->
-                <div class="space-y-3 md:space-y-4">
+            <div id="features-container">
+                <div class="grid lg:grid-cols-2 gap-6 md:gap-12 items-start">
+                    <!-- Left: Tab Buttons -->
+                    <div class="space-y-3 md:space-y-4">
                     <button 
                         onclick="featureTabs.switchTab('reconciliation')" 
                         id="tab-reconciliation"
@@ -537,9 +465,9 @@
                                 <i data-lucide="check-circle" class="w-5 h-5 md:w-7 md:h-7"></i>
                             </div>
                             <div class="flex-1 min-w-0">
-                                <h3 class="text-lg md:text-xl font-black mb-1 md:mb-2">自動對帳</h3>
+                                <h3 class="text-lg md:text-xl font-black mb-1 md:mb-2">銀行明細一鍵自動對帳</h3>
                                 <p class="text-xs md:text-sm text-gray-400 font-medium leading-relaxed">
-                                    上傳銀行 CSV 明細，系統自動比對後五碼與金額，準確率達 99.9%
+                                    匯入網銀 CSV 明細，系統自動比對買家後五碼與金額，誰付錢了、誰還沒付，一秒看清。
                                 </p>
                             </div>
                         </div>
@@ -556,9 +484,9 @@
                                 <i data-lucide="mail" class="w-5 h-5 md:w-7 md:h-7"></i>
                             </div>
                             <div class="flex-1 min-w-0">
-                                <h3 class="text-lg md:text-xl font-black mb-1 md:mb-2">寄送通知</h3>
+                                <h3 class="text-lg md:text-xl font-black mb-1 md:mb-2">一鍵通知｜到貨/補款/出貨直接通知買家</h3>
                                 <p class="text-xs md:text-sm text-gray-400 font-medium leading-relaxed">
-                                    一鍵發送匯款、二補下單與出貨通知，自動化溝通流程
+                                    一鍵發送匯款、二補下單與出貨通知，不用再複製貼上訊息到半夜。
                                 </p>
                             </div>
                         </div>
@@ -575,9 +503,9 @@
                                 <i data-lucide="upload" class="w-5 h-5 md:w-7 md:h-7"></i>
                             </div>
                             <div class="flex-1 min-w-0">
-                                <h3 class="text-lg md:text-xl font-black mb-1 md:mb-2">一鍵匯入</h3>
+                                <h3 class="text-lg md:text-xl font-black mb-1 md:mb-2">訂單整理｜多團多品項不再打結</h3>
                                 <p class="text-xs md:text-sm text-gray-400 font-medium leading-relaxed">
-                                    輕鬆導入Google Sheet資料，數據即刻進入系統
+                                    買家、品項、數量、狀態集中管理，找資料不用翻半天。
                                 </p>
                             </div>
                         </div>
@@ -594,18 +522,40 @@
                                 <i data-lucide="search" class="w-5 h-5 md:w-7 md:h-7"></i>
                             </div>
                             <div class="flex-1 min-w-0">
-                                <h3 class="text-lg md:text-xl font-black mb-1 md:mb-2">買家查詢</h3>
+                                <h3 class="text-lg md:text-xl font-black mb-1 md:mb-2">買家查詢中心｜讓買家自己查進度</h3>
                                 <p class="text-xs md:text-sm text-gray-400 font-medium leading-relaxed">
-                                    買家可隨時查詢訂單進度、物流狀態，也可直接進行二補下單
+                                    買家可隨時查詢訂單狀態，也可直接進行二補下單，減少你回「貨到了嗎？」這種重複性訊息。
+                                </p>
+                            </div>
+                        </div>
+                    </button>
+
+                    <button 
+                        onclick="featureTabs.switchTab('sorting')" 
+                        id="tab-sorting"
+                        class="feature-tab w-full p-4 md:p-6 rounded-xl md:rounded-2xl border-2 border-gray-100 bg-white hover:border-lilac-300 hover:shadow-soft transition-all text-left group"
+                        data-tab="sorting"
+                    >
+                        <div class="flex items-center space-x-3 md:space-x-4">
+                            <div class="w-10 h-10 md:w-14 md:h-14 bg-amber-50 text-amber-500 rounded-xl md:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform flex-shrink-0">
+                                <i data-lucide="sparkles" class="w-5 h-5 md:w-7 md:h-7"></i>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="text-[10px] px-2 py-0.5 bg-amber-50 text-amber-600 rounded-full font-black uppercase">KPOP 代購專用模組</span>
+                                </div>
+                                <h3 class="text-lg md:text-xl font-black mb-1 md:mb-2">小卡配位系統</h3>
+                                <p class="text-xs md:text-sm text-gray-400 font-medium leading-relaxed">
+                                    專為拆卡團、盲盒抽賞設計，基於付款順序與志願序自動完成配位，結果可追溯。
                                 </p>
                             </div>
                         </div>
                     </button>
                 </div>
                 
-                <!-- Right: Video Display Area -->
-                <div class="lg:sticky lg:top-24 mt-6 lg:mt-0">
-                    <div class="bg-surface rounded-2xl md:rounded-3xl p-4 md:p-8 border border-gray-100 shadow-premium overflow-hidden">
+                    <!-- Right: Video Display Area -->
+                    <div class="lg:sticky lg:top-24 mt-6 lg:mt-0" id="feature-video-wrapper">
+                        <div class="bg-surface rounded-2xl md:rounded-3xl p-4 md:p-8 border border-gray-100 shadow-premium overflow-hidden">
                         <!-- Video Container -->
                         <div id="feature-video-container" class="relative w-full bg-gray-100 shadow-soft rounded-xl md:rounded-2xl overflow-hidden" style="aspect-ratio: 16/10;">
                             <video 
@@ -646,6 +596,21 @@
                             <p id="feature-description" class="text-sm md:text-base text-gray-400 font-medium leading-relaxed">
                                 只需上傳銀行 CSV 明細，系統會自動比對後五碼與金額，準確率達 99.9%，一秒完成百筆訂單確認。
                             </p>
+                            <!-- Feature Points (for sorting only) -->
+                            <div id="feature-points" class="hidden mt-4 space-y-2">
+                                <div class="flex items-start space-x-2">
+                                    <div class="mt-1 bg-amber-50 p-1 rounded-full flex-shrink-0"><i data-lucide="check" class="w-3 h-3 text-amber-500"></i></div>
+                                    <span class="text-sm text-gray-600 font-medium">配位規則清楚：嚴格遵循付款順序與買家志願序</span>
+                                </div>
+                                <div class="flex items-start space-x-2">
+                                    <div class="mt-1 bg-amber-50 p-1 rounded-full flex-shrink-0"><i data-lucide="check" class="w-3 h-3 text-amber-500"></i></div>
+                                    <span class="text-sm text-gray-600 font-medium">配位結果可追溯：避免「你是不是配錯」的爭議</span>
+                                </div>
+                                <div class="flex items-start space-x-2">
+                                    <div class="mt-1 bg-amber-50 p-1 rounded-full flex-shrink-0"><i data-lucide="check" class="w-3 h-3 text-amber-500"></i></div>
+                                    <span class="text-sm text-gray-600 font-medium">一次出結果：不用在表格裡拖拉到眼花</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -653,68 +618,175 @@
         </div>
     </section>
 
-    <!-- Special Feature: Card Sorting -->
-    <section class="py-12 md:py-24 px-4 md:px-6 bg-gray-50">
+    <!-- 3 Steps Onboarding Section -->
+    <section class="py-24 px-6 bg-gray-50">
         <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-8 md:mb-16">
-                <div class="inline-flex items-center space-x-2 bg-amber-50 px-4 py-2 rounded-full border border-amber-100 mb-4">
-                    <span class="text-xs font-black text-amber-600 uppercase tracking-widest">特殊功能</span>
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-4 tracking-tight text-gray-900">
+                    開始使用只要 3 步，當天就能上手
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 md:gap-8">
+                <!-- Step 1 -->
+                <div class="bg-white rounded-2xl md:rounded-3xl p-6 md:p-8 border border-gray-100 shadow-soft hover:shadow-premium transition-all">
+                    <div class="flex items-center justify-center mb-6">
+                        <div class="relative w-32 h-32 bg-lilac-50 rounded-2xl flex items-center justify-center">
+                            <i data-lucide="clipboard-check" class="w-16 h-16 text-lilac-500"></i>
+                        </div>
+                    </div>
+                    <div class="text-center mb-4">
+                        <span class="inline-block px-3 py-1 bg-lilac-100 text-lilac-600 text-xs font-black rounded-full mb-3">STEP 1</span>
+                        <h3 class="text-xl md:text-2xl font-black mb-3 text-gray-900">申請 Beta（30 秒）</h3>
+                    </div>
+                    <p class="text-gray-600 font-medium leading-relaxed text-sm md:text-base">
+                        填寫簡單資訊，我會確認你的代購類型與目前流程。
+                    </p>
                 </div>
-                <h2 class="text-2xl md:text-4xl font-black mb-4 tracking-tight">小卡配位系統</h2>
-                <p class="text-sm md:text-base text-gray-400 font-medium max-w-2xl mx-auto">
-                    專為 K-pop 拆卡團、盲盒抽賞、連線商品分配等有「配位」需求的團購而設計的智慧分配系統
-                </p>
+
+                <!-- Step 2 -->
+                <div class="bg-white rounded-2xl md:rounded-3xl p-6 md:p-8 border border-gray-100 shadow-soft hover:shadow-premium transition-all">
+                    <div class="flex items-center justify-center mb-6">
+                        <div class="relative w-32 h-32 bg-blue-50 rounded-2xl flex items-center justify-center">
+                            <i data-lucide="settings" class="w-16 h-16 text-blue-500"></i>
+                        </div>
+                    </div>
+                    <div class="text-center mb-4">
+                        <span class="inline-block px-3 py-1 bg-blue-100 text-blue-600 text-xs font-black rounded-full mb-3">STEP 2</span>
+                        <h3 class="text-xl md:text-2xl font-black mb-3 text-gray-900">15–30 分鐘導入（我帶你）</h3>
+                    </div>
+                    <p class="text-gray-600 font-medium leading-relaxed text-sm md:text-base">
+                        我們用你現在的流程快速設定：訂單狀態、通知模板、查詢入口（先從你最痛的開始）。
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-white rounded-2xl md:rounded-3xl p-6 md:p-8 border border-gray-100 shadow-soft hover:shadow-premium transition-all">
+                    <div class="flex items-center justify-center mb-6">
+                        <div class="relative w-32 h-32 bg-green-50 rounded-2xl flex items-center justify-center">
+                            <i data-lucide="zap" class="w-16 h-16 text-green-500"></i>
+                        </div>
+                    </div>
+                    <div class="text-center mb-4">
+                        <span class="inline-block px-3 py-1 bg-green-100 text-green-600 text-xs font-black rounded-full mb-3">STEP 3</span>
+                        <h3 class="text-xl md:text-2xl font-black mb-3 text-gray-900">當天開始省時間</h3>
+                    </div>
+                    <p class="text-gray-600 font-medium leading-relaxed text-sm md:text-base">
+                        你會立刻看到：對帳更清楚、通知更快、買家少來問，雜事少一半。
+                    </p>
+                </div>
             </div>
             
-            <div class="grid lg:grid-cols-2 gap-6 md:gap-12 items-center">
-                <!-- Left: Description -->
-                <div class="space-y-6">
-                    <div class="bg-white p-6 md:p-8 rounded-2xl md:rounded-3xl border border-gray-100 shadow-soft">
-                        <div class="flex items-center space-x-4 mb-4">
-                            <div class="w-14 h-14 md:w-16 md:h-16 bg-amber-50 text-amber-500 rounded-2xl flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="sparkles" class="w-7 h-7 md:w-8 md:h-8"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-xl md:text-2xl font-black mb-2">智慧配位算法</h3>
-                                <p class="text-sm md:text-base text-gray-400 font-medium">
-                                    獨家開發的算法模型，基於下單順序與志願序，自動完成最公平的配位工作
-                                </p>
-                            </div>
-                        </div>
+            <!-- CTA Button -->
+            <div class="text-center mt-12 md:mt-16">
+                <a href="#cta" class="inline-block bg-dark text-white text-lg md:text-xl px-10 md:px-12 py-5 md:py-6 rounded-3xl font-black shadow-premium hover:bg-lilac-600 transition-all transform hover:scale-105">
+                    立即申請 Beta 試用
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- One Minute Quiz Section -->
+    <section id="quiz" class="py-24 px-6 bg-gradient-to-b from-white to-gray-50">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center space-x-2 bg-lilac-50 px-4 py-2 rounded-full border border-lilac-100 mb-6">
+                    <span class="w-2 h-2 bg-lilac-400 rounded-full animate-pulse"></span>
+                    <span class="text-[10px] font-black text-lilac-500 uppercase tracking-widest">一分鐘測驗</span>
+                </div>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-4 tracking-tight text-gray-900">
+                    一分鐘測試妳的代購模式需要升級了嗎？
+                </h2>
+                <p class="text-lg text-gray-500 font-medium max-w-2xl mx-auto">
+                    如果妳符合以下超過 2 項，K-Link Pro 將是妳的救星：
+                </p>
+            </div>
+
+            <!-- Quiz Form -->
+            <div id="quiz-form-container" class="bg-white rounded-3xl p-8 md:p-12 border border-gray-100 shadow-premium">
+                <form id="quiz-form" class="space-y-4">
+                    <div class="quiz-item group">
+                        <label class="flex items-start space-x-4 p-4 rounded-xl border-2 border-gray-100 hover:border-lilac-200 hover:bg-lilac-50/30 cursor-pointer transition-all">
+                            <input type="checkbox" name="quiz" value="10" class="mt-1 w-5 h-5 rounded border-gray-300 text-lilac-500 focus:ring-lilac-200 cursor-pointer">
+                            <span class="flex-1 text-gray-700 font-medium">每天花在回覆「匯款確認」私訊的時間超過 1 小時。</span>
+                        </label>
+                    </div>
+                    <div class="quiz-item group">
+                        <label class="flex items-start space-x-4 p-4 rounded-xl border-2 border-gray-100 hover:border-lilac-200 hover:bg-lilac-50/30 cursor-pointer transition-all">
+                            <input type="checkbox" name="quiz" value="10" class="mt-1 w-5 h-5 rounded border-gray-300 text-lilac-500 focus:ring-lilac-200 cursor-pointer">
+                            <span class="flex-1 text-gray-700 font-medium">買家用私訊/表單下單，你要手動整理</span>
+                        </label>
+                    </div>
+                    <div class="quiz-item group">
+                        <label class="flex items-start space-x-4 p-4 rounded-xl border-2 border-gray-100 hover:border-lilac-200 hover:bg-lilac-50/30 cursor-pointer transition-all">
+                            <input type="checkbox" name="quiz" value="10" class="mt-1 w-5 h-5 rounded border-gray-300 text-lilac-500 focus:ring-lilac-200 cursor-pointer">
+                            <span class="flex-1 text-gray-700 font-medium">每天在對帳、找後五碼、標記已匯/未匯</span>
+                        </label>
+                    </div>
+                    <div class="quiz-item group">
+                        <label class="flex items-start space-x-4 p-4 rounded-xl border-2 border-gray-100 hover:border-lilac-200 hover:bg-lilac-50/30 cursor-pointer transition-all">
+                            <input type="checkbox" name="quiz" value="10" class="mt-1 w-5 h-5 rounded border-gray-300 text-lilac-500 focus:ring-lilac-200 cursor-pointer">
+                            <span class="flex-1 text-gray-700 font-medium">二補/追加/補款通知要發很多次</span>
+                        </label>
+                    </div>
+                    <div class="quiz-item group">
+                        <label class="flex items-start space-x-4 p-4 rounded-xl border-2 border-gray-100 hover:border-lilac-200 hover:bg-lilac-50/30 cursor-pointer transition-all">
+                            <input type="checkbox" name="quiz" value="10" class="mt-1 w-5 h-5 rounded border-gray-300 text-lilac-500 focus:ring-lilac-200 cursor-pointer">
+                            <span class="flex-1 text-gray-700 font-medium">買家一直問「有沒有收到匯款？」、「什麼時候出貨？」</span>
+                        </label>
+                    </div>
+                    <div class="quiz-item group">
+                        <label class="flex items-start space-x-4 p-4 rounded-xl border-2 border-gray-100 hover:border-lilac-200 hover:bg-lilac-50/30 cursor-pointer transition-all">
+                            <input type="checkbox" name="quiz" value="10" class="mt-1 w-5 h-5 rounded border-gray-300 text-lilac-500 focus:ring-lilac-200 cursor-pointer">
+                            <span class="flex-1 text-gray-700 font-medium">你用 Excel/Google Sheet 撐全場，越做越亂</span>
+                        </label>
+                    </div>
+                    <div class="quiz-item group">
+                        <label class="flex items-start space-x-4 p-4 rounded-xl border-2 border-gray-100 hover:border-lilac-200 hover:bg-lilac-50/30 cursor-pointer transition-all">
+                            <input type="checkbox" name="quiz" value="10" class="mt-1 w-5 h-5 rounded border-gray-300 text-lilac-500 focus:ring-lilac-200 cursor-pointer">
+                            <span class="flex-1 text-gray-700 font-medium">曾經因為 Excel 紀錄錯誤而少收錢或寄錯貨。</span>
+                        </label>
+                    </div>
+                    <div class="quiz-item group">
+                        <label class="flex items-start space-x-4 p-4 rounded-xl border-2 border-gray-100 hover:border-lilac-200 hover:bg-lilac-50/30 cursor-pointer transition-all">
+                            <input type="checkbox" name="quiz" value="10" class="mt-1 w-5 h-5 rounded border-gray-300 text-lilac-500 focus:ring-lilac-200 cursor-pointer">
+                            <span class="flex-1 text-gray-700 font-medium">遇到熱門團或拆卡團，光是整理名單就想放棄人生。</span>
+                        </label>
+                    </div>
+                    <div class="quiz-item group">
+                        <label class="flex items-start space-x-4 p-4 rounded-xl border-2 border-gray-100 hover:border-lilac-200 hover:bg-lilac-50/30 cursor-pointer transition-all">
+                            <input type="checkbox" name="quiz" value="10" class="mt-1 w-5 h-5 rounded border-gray-300 text-lilac-500 focus:ring-lilac-200 cursor-pointer">
+                            <span class="flex-1 text-gray-700 font-medium">很想做大，但一想到訂單變多就害怕處理不來。</span>
+                        </label>
+                    </div>
+                    <div class="quiz-item group">
+                        <label class="flex items-start space-x-4 p-4 rounded-xl border-2 border-gray-100 hover:border-lilac-200 hover:bg-lilac-50/30 cursor-pointer transition-all">
+                            <input type="checkbox" name="quiz" value="10" class="mt-1 w-5 h-5 rounded border-gray-300 text-lilac-500 focus:ring-lilac-200 cursor-pointer">
+                            <span class="flex-1 text-gray-700 font-medium">多個專案同時進行時，資料混在一起難以區分</span>
+                        </label>
                     </div>
                     
-                    <div class="space-y-4">
-                        <div class="flex items-start space-x-3">
-                            <div class="mt-1 bg-amber-50 p-1 rounded-full"><i data-lucide="check" class="w-4 h-4 text-amber-500"></i></div>
-                            <span class="text-gray-600 font-medium">嚴格遵循付款順序與買家志願序</span>
-                        </div>
-                        <div class="flex items-start space-x-3">
-                            <div class="mt-1 bg-amber-50 p-1 rounded-full"><i data-lucide="check" class="w-4 h-4 text-amber-500"></i></div>
-                            <span class="text-gray-600 font-medium">自動計算最佳分配路徑，公正公開</span>
-                        </div>
-                        <div class="flex items-start space-x-3">
-                            <div class="mt-1 bg-amber-50 p-1 rounded-full"><i data-lucide="check" class="w-4 h-4 text-amber-500"></i></div>
-                            <span class="text-gray-600 font-medium">產出透明的配位結果清單，減少人為操作</span>
-                        </div>
-                    </div>
+                    <button type="submit" class="w-full mt-8 py-4 bg-dark text-white rounded-2xl font-black text-lg hover:bg-lilac-600 transition-all transform hover:scale-105 shadow-premium">
+                        查看測驗結果
+                    </button>
+                </form>
+            </div>
+
+            <!-- Quiz Result -->
+            <div id="quiz-result-container" class="hidden bg-white rounded-3xl p-8 md:p-12 border border-gray-100 shadow-premium">
+                <div class="text-center mb-8">
+                    <div id="quiz-result-icon" class="w-20 h-20 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-soft"></div>
+                    <h3 id="quiz-result-title" class="text-3xl md:text-4xl font-black mb-4 text-gray-900"></h3>
+                    <p id="quiz-result-score" class="text-2xl font-black mb-6"></p>
+                    <p id="quiz-result-description" class="text-lg text-gray-600 font-medium leading-relaxed max-w-2xl mx-auto mb-8"></p>
                 </div>
-                
-                <!-- Right: Video -->
-                <div class="bg-white rounded-2xl md:rounded-3xl p-4 md:p-8 border border-gray-100 shadow-premium overflow-hidden">
-                    <div class="relative w-full bg-gray-100 shadow-soft rounded-xl md:rounded-2xl overflow-hidden" style="aspect-ratio: 16/10;">
-                        <video 
-                            class="w-full h-full object-cover"
-                            autoplay
-                            muted
-                            loop
-                            playsinline
-                            preload="auto"
-                            crossorigin="anonymous"
-                        >
-                            <source src="https://rppl0rsu6jd4zda6.public.blob.vercel-storage.com/klink_demo_sorting.mp4" type="video/mp4">
-                            您的瀏覽器不支援 HTML5 影片標籤
-                        </video>
-                    </div>
+                <div class="text-center">
+                    <a href="#cta" id="quiz-cta-button" class="inline-block px-10 py-5 bg-dark text-white rounded-3xl font-black text-lg hover:bg-lilac-600 transition-all transform hover:scale-105 shadow-premium">
+                        領取我的自動化救星 (免費試用)
+                    </a>
+                    <button onclick="quizUI.resetQuiz()" class="block mt-4 text-gray-400 hover:text-gray-600 font-medium transition-colors">
+                        重新測驗
+                    </button>
                 </div>
             </div>
         </div>
@@ -890,47 +962,101 @@
 
     <!-- FAQ Section -->
     <section id="faq" class="py-24 px-6 bg-white">
-        <div class="max-w-4xl mx-auto">
+        <div class="max-w-7xl mx-auto">
             <h2 class="text-3xl md:text-4xl font-black text-center mb-12 tracking-tight">常見問題</h2>
-            <div class="space-y-6">
-                <div class="border-b border-gray-200 pb-6">
-                    <h3 class="text-xl font-black mb-3 text-gray-900">Q: K-Link Pro 只有 K-pop 代購主能用嗎？</h3>
-                    <p class="text-gray-600 font-medium leading-relaxed">完全不是！K-Link Pro 專為所有類型的代購主設計，包括日韓周邊、美妝、精品等各類團購。只要您有「分階段收款」與「自動對帳」的需求，無論是代購什麼商品，K-Link Pro 都能成為您的最佳助手。系統中的「小卡配位」功能是特別為 K-pop 拆卡團或有配位需求的團購而設計的特殊功能，但這不影響其他類型代購主使用系統的核心功能。</p>
+            <div class="grid md:grid-cols-2 gap-4">
+                <!-- Left Column -->
+                <div class="space-y-4">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item bg-white border-2 border-gray-100 rounded-xl overflow-hidden hover:border-lilac-200 transition-all" data-faq="1">
+                        <button class="faq-question w-full px-6 py-4 text-left flex items-center justify-between group" onclick="faqUI.toggle(1)">
+                            <h3 class="text-lg font-black text-gray-900 pr-4">Q: K-Link Pro 只有 K-pop 代購主能用嗎？</h3>
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-hover:text-lilac-500 transition-all transform faq-icon flex-shrink-0"></i>
+                        </button>
+                        <div class="faq-answer hidden px-6 pb-4">
+                            <p class="text-gray-600 font-medium leading-relaxed">完全不是！K-Link Pro 專為所有類型的代購主設計，包括日韓周邊、美妝、精品等各類團購。只要您有「分階段收款」與「自動對帳」的需求，無論是代購什麼商品，K-Link Pro 都能成為您的最佳助手。系統中的「小卡配位」功能是特別為 K-pop 拆卡團或有配位需求的團購而設計的特殊功能，但這不影響其他類型代購主使用系統的核心功能。</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item bg-white border-2 border-gray-100 rounded-xl overflow-hidden hover:border-lilac-200 transition-all" data-faq="2">
+                        <button class="faq-question w-full px-6 py-4 text-left flex items-center justify-between group" onclick="faqUI.toggle(2)">
+                            <h3 class="text-lg font-black text-gray-900 pr-4">Q: K-Link Pro 如何實現「自動對帳」？</h3>
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-hover:text-lilac-500 transition-all transform faq-icon flex-shrink-0"></i>
+                        </button>
+                        <div class="faq-answer hidden px-6 pb-4">
+                            <p class="text-gray-600 font-medium leading-relaxed">系統支援匯入銀行CSV明細，透過系統比對金額與帳號後五碼，準確率達 99.9%，原本數小時的工作量僅需 1 分鐘即可完成。</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item bg-white border-2 border-gray-100 rounded-xl overflow-hidden hover:border-lilac-200 transition-all" data-faq="3">
+                        <button class="faq-question w-full px-6 py-4 text-left flex items-center justify-between group" onclick="faqUI.toggle(3)">
+                            <h3 class="text-lg font-black text-gray-900 pr-4">Q: 「小卡配位」功能適用於哪些情況？</h3>
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-hover:text-lilac-500 transition-all transform faq-icon flex-shrink-0"></i>
+                        </button>
+                        <div class="faq-answer hidden px-6 pb-4">
+                            <p class="text-gray-600 font-medium leading-relaxed">此功能專為 K-pop 拆卡團、盲盒抽賞、連線商品分配，或其他有「配位」需求的團購而設計。我們的算法嚴格遵循「付款順序」與「買家志願序」，系統會自動計算最佳分配路徑，並產出透明的配位結果清單，減少人為操作的不透明感。</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div class="faq-item bg-white border-2 border-gray-100 rounded-xl overflow-hidden hover:border-lilac-200 transition-all" data-faq="4">
+                        <button class="faq-question w-full px-6 py-4 text-left flex items-center justify-between group" onclick="faqUI.toggle(4)">
+                            <h3 class="text-lg font-black text-gray-900 pr-4">Q: 買家查詢系統會洩露個資嗎？</h3>
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-hover:text-lilac-500 transition-all transform faq-icon flex-shrink-0"></i>
+                        </button>
+                        <div class="faq-answer hidden px-6 pb-4">
+                            <p class="text-gray-600 font-medium leading-relaxed">絕對不會。買家僅能透過其登記的 Email 或手機號碼查詢「自己」的訂單狀態。相較於公開的 Google Sheet，K-Link Pro 能更有效保護所有人的個資安全。</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="border-b border-gray-200 pb-6">
-                    <h3 class="text-xl font-black mb-3 text-gray-900">Q: K-Link Pro 如何實現「自動對帳」？</h3>
-                    <p class="text-gray-600 font-medium leading-relaxed">系統支援匯入銀行CSV明細，透過系統比對金額與帳號後五碼，準確率達 99.9%，原本數小時的工作量僅需 1 分鐘即可完成。</p>
-                </div>
+                <!-- Right Column -->
+                <div class="space-y-4">
+                    <!-- FAQ Item 5 -->
+                    <div class="faq-item bg-white border-2 border-gray-100 rounded-xl overflow-hidden hover:border-lilac-200 transition-all" data-faq="5">
+                        <button class="faq-question w-full px-6 py-4 text-left flex items-center justify-between group" onclick="faqUI.toggle(5)">
+                            <h3 class="text-lg font-black text-gray-900 pr-4">Q: 系統可以發送自動郵件通知嗎？</h3>
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-hover:text-lilac-500 transition-all transform faq-icon flex-shrink-0"></i>
+                        </button>
+                        <div class="faq-answer hidden px-6 pb-4">
+                            <p class="text-gray-600 font-medium leading-relaxed">可以。系統內建一鍵寄信功能，當您完成對帳、發起二補或包裹到貨時，只需點擊按鈕，系統就會自動向買家發送個人化的電子郵件通知。</p>
+                        </div>
+                    </div>
 
-                <div class="border-b border-gray-200 pb-6">
-                    <h3 class="text-xl font-black mb-3 text-gray-900">Q: 「小卡配位」功能適用於哪些情況？</h3>
-                    <p class="text-gray-600 font-medium leading-relaxed">此功能專為 K-pop 拆卡團、盲盒抽賞、連線商品分配，或其他有「配位」需求的團購而設計。我們的算法嚴格遵循「付款順序」與「買家志願序」，系統會自動計算最佳分配路徑，並產出透明的配位結果清單，減少人為操作的不透明感。</p>
-                </div>
+                    <!-- FAQ Item 6 -->
+                    <div class="faq-item bg-white border-2 border-gray-100 rounded-xl overflow-hidden hover:border-lilac-200 transition-all" data-faq="6">
+                        <button class="faq-question w-full px-6 py-4 text-left flex items-center justify-between group" onclick="faqUI.toggle(6)">
+                            <h3 class="text-lg font-black text-gray-900 pr-4">Q: 需要具備技術背景才能使用嗎？</h3>
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-hover:text-lilac-500 transition-all transform faq-icon flex-shrink-0"></i>
+                        </button>
+                        <div class="faq-answer hidden px-6 pb-4">
+                            <p class="text-gray-600 font-medium leading-relaxed">完全不需要！K-Link Pro 設計得非常直觀易用，只要會使用 Google Sheet 就能輕鬆上手。系統提供完整的使用教學和示範，即使沒有技術背景也能快速掌握所有功能。</p>
+                        </div>
+                    </div>
 
-                <div class="border-b border-gray-200 pb-6">
-                    <h3 class="text-xl font-black mb-3 text-gray-900">Q: 買家查詢系統會洩露個資嗎？</h3>
-                    <p class="text-gray-600 font-medium leading-relaxed">絕對不會。買家僅能透過其登記的 Email 或手機號碼查詢「自己」的訂單狀態。相較於公開的 Google Sheet，K-Link Pro 能更有效保護所有人的個資安全。</p>
-                </div>
+                    <!-- FAQ Item 7 -->
+                    <div class="faq-item bg-white border-2 border-gray-100 rounded-xl overflow-hidden hover:border-lilac-200 transition-all" data-faq="7">
+                        <button class="faq-question w-full px-6 py-4 text-left flex items-center justify-between group" onclick="faqUI.toggle(7)">
+                            <h3 class="text-lg font-black text-gray-900 pr-4">Q: 可以同時管理多個團購專案嗎？</h3>
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-hover:text-lilac-500 transition-all transform faq-icon flex-shrink-0"></i>
+                        </button>
+                        <div class="faq-answer hidden px-6 pb-4">
+                            <p class="text-gray-600 font-medium leading-relaxed">當然可以！K-Link Pro 支援同時管理多個團購專案，每個專案都有獨立的訂單列表、對帳記錄和買家查詢系統，讓您能夠輕鬆處理多個代購專案而不會混淆。</p>
+                        </div>
+                    </div>
 
-                <div class="border-b border-gray-200 pb-6">
-                    <h3 class="text-xl font-black mb-3 text-gray-900">Q: 系統可以發送自動郵件通知嗎？</h3>
-                    <p class="text-gray-600 font-medium leading-relaxed">可以。系統內建一鍵寄信功能，當您完成對帳、發起二補或包裹到貨時，只需點擊按鈕，系統就會自動向買家發送個人化的電子郵件通知。</p>
-                </div>
-
-                <div class="border-b border-gray-200 pb-6">
-                    <h3 class="text-xl font-black mb-3 text-gray-900">Q: 需要具備技術背景才能使用嗎？</h3>
-                    <p class="text-gray-600 font-medium leading-relaxed">完全不需要！K-Link Pro 設計得非常直觀易用，只要會使用 Google Sheet 就能輕鬆上手。系統提供完整的使用教學和示範，即使沒有技術背景也能快速掌握所有功能。</p>
-                </div>
-
-                <div class="border-b border-gray-200 pb-6">
-                    <h3 class="text-xl font-black mb-3 text-gray-900">Q: 可以同時管理多個團購專案嗎？</h3>
-                    <p class="text-gray-600 font-medium leading-relaxed">當然可以！K-Link Pro 支援同時管理多個團購專案，每個專案都有獨立的訂單列表、對帳記錄和買家查詢系統，讓您能夠輕鬆處理多個代購專案而不會混淆。</p>
-                </div>
-
-                <div class="pb-6">
-                    <h3 class="text-xl font-black mb-3 text-gray-900">Q: 如何開始使用 K-Link Pro？</h3>
-                    <p class="text-gray-600 font-medium leading-relaxed">非常簡單！只需填寫下方的申請表單，我們會在第一時間與您聯繫，提供測試權限並協助您完成系統設定。整個過程完全免費，讓您先體驗系統的強大功能再決定是否正式使用。</p>
+                    <!-- FAQ Item 8 -->
+                    <div class="faq-item bg-white border-2 border-gray-100 rounded-xl overflow-hidden hover:border-lilac-200 transition-all" data-faq="8">
+                        <button class="faq-question w-full px-6 py-4 text-left flex items-center justify-between group" onclick="faqUI.toggle(8)">
+                            <h3 class="text-lg font-black text-gray-900 pr-4">Q: 如何開始使用 K-Link Pro？</h3>
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-hover:text-lilac-500 transition-all transform faq-icon flex-shrink-0"></i>
+                        </button>
+                        <div class="faq-answer hidden px-6 pb-4">
+                            <p class="text-gray-600 font-medium leading-relaxed">非常簡單！只需填寫下方的申請表單，我們會在第一時間與您聯繫，提供測試權限並協助您完成系統設定。整個過程完全免費，讓您先體驗系統的強大功能再決定是否正式使用。</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -943,17 +1069,24 @@
             <div class="absolute bottom-0 left-0 w-64 h-64 bg-blue-50/50 rounded-full blur-[100px]"></div>
             
             <div class="relative z-10">
-                <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-8 tracking-tight">準備好釋放您的雙手了嗎？</h2>
-                <p class="text-xl text-gray-500 mb-6 max-w-lg mx-auto font-medium">填寫申請表單，第一時間體驗 K-Link Pro 的自動化魔力。</p>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-6 md:mb-8 tracking-tight">申請Beta試用：讓K-Link Pro幫你把「最耗時間的那一段」先省下來</h2>
+                <p class="text-sm sm:text-base md:text-lg lg:text-xl text-gray-500 mb-6 max-w-lg mx-auto font-medium">30秒即可填寫完成。Beta期間專人協助導入，讓你最快在本週內開始用。</p>
                 <div class="max-w-2xl mx-auto mb-12 px-6 py-4 bg-lilac-50/50 border border-lilac-100 rounded-2xl">
                     <p class="text-sm text-gray-500 font-medium leading-relaxed text-center">
-                        無論是日韓周邊、美妝、精品代購還是各類團購主，只要您有<span class="font-bold text-gray-700">「分階段收款」</span>與<span class="font-bold text-gray-700">「自動對帳」</span>的需求，K-Link Pro 都能成為您的最強後盾。
+                        現在申請Beta試用就送你免費<span class="font-bold text-gray-700">「代購必備模板」<br></span>包含：<span class="font-bold text-gray-700">「對帳表、通知模板、買家公告模板、代購SOP」</span>
                     </p>
                 </div>
                 
                 <div class="max-w-3xl mx-auto">
                    <iframe data-tally-src="https://tally.so/embed/b59QZ0?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="1524" frameborder="0" marginheight="0" marginwidth="0" title="申請K-Link試用名額"></iframe>
                     <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
+                </div>
+                
+                <!-- Trust Indicators -->
+                <div class="mt-8 text-center">
+                    <p class="text-sm text-gray-400 font-medium">
+                        免安裝｜目前僅開放 20 位代購主｜不合適也可直接退出
+                    </p>
                 </div>
             </div>
         </div>
@@ -1133,21 +1266,21 @@
         </div>
     </div>
 
-    <footer class="bg-gray-50 border-t border-gray-200 pt-16 pb-8">
+    <footer class="bg-gray-50 border-t border-gray-200 pt-8 md:pt-16 pb-6 md:pb-8">
         <div class="max-w-6xl mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-12 mb-8 md:mb-12">
                 
-                <div>
-                    <h3 class="text-xl font-black text-lilac-600 mb-4">K-Link Pro</h3>
-                    <p class="text-gray-500 leading-relaxed font-medium">
-                        專為代購主打造的智慧管理平台，<br>
+                <div class="col-span-2 md:col-span-1">
+                    <h3 class="text-lg md:text-xl font-black text-lilac-600 mb-2 md:mb-4">K-Link Pro</h3>
+                    <p class="text-xs md:text-sm text-gray-500 leading-relaxed font-medium">
+                        專為代購主打造的智慧管理平台，<br class="hidden md:block">
                         讓繁瑣的對帳與配位成為過去。
                     </p>
                 </div>
 
                 <div>
-                    <h4 class="font-black mb-4 text-gray-900">產品</h4>
-                    <ul class="space-y-2 text-gray-600">
+                    <h4 class="text-sm md:text-base font-black mb-2 md:mb-4 text-gray-900">產品</h4>
+                    <ul class="space-y-1 md:space-y-2 text-xs md:text-sm text-gray-600">
                         <li><a href="#features" class="hover:text-lilac-600 transition-colors font-medium">功能特色</a></li>
                         <li><a href="#faq" class="hover:text-lilac-600 transition-colors font-medium">常見問題</a></li>
                         <li><a href="#cta" class="hover:text-lilac-600 transition-colors font-medium">申請試用</a></li>
@@ -1155,43 +1288,29 @@
                 </div>
 
                 <div>
-                    <h4 class="font-black mb-4 text-gray-900">聯繫我們</h4>
-                    <p class="text-gray-600 mb-4 font-medium">有任何問題或合作想法？歡迎填寫表單：</p>
-                    <form id="footer-contact-form" class="space-y-3">
-                        <input 
-                            type="text" 
-                            name="name" 
-                            placeholder="您的姓名" 
-                            required
-                            class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-lilac-400 focus:ring-2 focus:ring-lilac-200 outline-none transition-all text-sm"
-                        >
-                        <input 
-                            type="email" 
-                            name="email" 
-                            placeholder="您的 Email" 
-                            required
-                            class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-lilac-400 focus:ring-2 focus:ring-lilac-200 outline-none transition-all text-sm"
-                        >
-                        <textarea 
-                            name="message" 
-                            placeholder="請輸入您的訊息..." 
-                            rows="3"
-                            required
-                            class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-lilac-400 focus:ring-2 focus:ring-lilac-200 outline-none transition-all text-sm resize-none"
-                        ></textarea>
-                        <button 
-                            type="submit"
-                            class="w-full bg-lilac-600 text-white py-2 px-4 rounded-lg font-bold hover:bg-lilac-700 transition-colors text-sm"
-                        >
-                            送出訊息
-                        </button>
-                    </form>
-                    <p id="footer-form-message" class="mt-3 text-sm text-gray-400 font-medium hidden"></p>
+                    <h4 class="text-sm md:text-base font-black mb-2 md:mb-4 text-gray-900">聯繫我們</h4>
+                    <p class="text-xs md:text-sm text-gray-600 mb-3 md:mb-6 font-medium">有任何問題或合作想法？歡迎透過以下方式聯繫：</p>
+                    <div class="flex items-start space-x-3 md:space-x-6">
+                        <!-- LINE -->
+                        <div class="flex flex-col items-center">
+                            <a href="#" id="line-link" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-7 h-7 text-gray-900 hover:text-lilac-500 transition-colors">
+                                <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-7 h-7"><path d="M13.25 8.61v3.328c0 .093-.094.14-.188.14h-.515c-.047 0-.094-.047-.14-.047l-1.5-2.062v1.969c0 .093-.095.14-.141.14h-.563c-.094 0-.14-.047-.14-.14V8.608c0-.093.046-.14.14-.14h.563c.046 0 .093 0 .093.047l1.547 2.062V8.61c0-.093.047-.14.14-.14h.517c.093-.047.187.047.187.14Zm-3.844-.188h-.562c-.094 0-.14.094-.14.187v3.329c0 .093.046.14.14.14h.562c.047 0 .14-.047.14-.14V8.608c0-.093-.093-.187-.14-.187Zm-1.312 2.812H6.64V8.61c0-.093-.047-.187-.141-.187h-.563c-.046 0-.14.094-.14.187v3.329c0 .046.047.046.047.093.047 0 .047.047.093.047h2.157c.094 0 .14-.094.14-.14v-.563c0-.047-.046-.14-.14-.14Zm7.969-2.812h-2.157c-.094 0-.14.094-.14.187v3.329c0 .046.046.14.14.14h2.156c.047 0 .141-.047.141-.14v-.563c0-.047-.094-.14-.14-.14h-1.454v-.563h1.454c.046 0 .14-.047.14-.14v-.563c0-.047-.094-.14-.14-.14h-1.454v-.563h1.454c.046 0 .14-.047.14-.141v-.516c0-.093-.094-.187-.14-.187ZM21.5 4.344v13.36c-.047 2.108-1.734 3.843-3.844 3.796H4.296C2.188 21.5.454 19.812.5 17.703V4.297C.5 2.234 2.188.5 4.297.5h13.406C19.766.547 21.5 2.234 21.5 4.344Zm-2.906 5.765c0-3.421-3.422-6.234-7.64-6.234-4.22 0-7.642 2.813-7.642 6.234 0 3.047 2.72 5.625 6.376 6.094.89.188.796.516.609 1.735-.047.187-.188.75.656.421.797-.328 4.406-2.578 6-4.453 1.125-1.219 1.64-2.437 1.64-3.797Z" fill="currentColor"></path></svg>
+                            </a>
+                            <p class="text-[10px] md:text-xs text-gray-500 mt-1 md:mt-2 font-medium text-center">加入 LINE</p>
+                        </div>
+                        <!-- Instagram -->
+                        <div class="flex flex-col items-center">
+                            <a href="#" id="ig-link" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-7 h-7 text-gray-900 hover:text-lilac-500 transition-colors">
+                                <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-7 h-7"><path d="M11 5.61c-3 0-5.39 2.437-5.39 5.39 0 3 2.39 5.39 5.39 5.39 2.953 0 5.39-2.39 5.39-5.39 0-2.953-2.437-5.39-5.39-5.39Zm0 8.906A3.51 3.51 0 0 1 7.484 11c0-1.922 1.547-3.469 3.516-3.469A3.46 3.46 0 0 1 14.469 11c0 1.969-1.547 3.516-3.469 3.516Zm6.844-9.094a1.26 1.26 0 0 1-1.266 1.266 1.26 1.26 0 0 1-1.265-1.266 1.26 1.26 0 0 1 1.265-1.266 1.26 1.26 0 0 1 1.266 1.266Zm3.562 1.266C21.313 5 20.938 3.5 19.72 2.28 18.5 1.062 17 .687 15.312.594 13.579.5 8.375.5 6.642.594 4.953.688 3.5 1.063 2.234 2.28 1.016 3.5.641 5 .547 6.687c-.094 1.735-.094 6.938 0 8.672.094 1.688.469 3.141 1.687 4.407 1.266 1.218 2.72 1.593 4.407 1.687 1.734.094 6.937.094 8.671 0 1.688-.094 3.188-.469 4.407-1.687 1.218-1.266 1.593-2.72 1.687-4.407.094-1.734.094-6.937 0-8.671Zm-2.25 10.5c-.328.937-1.078 1.64-1.968 2.015-1.407.563-4.688.422-6.188.422-1.547 0-4.828.14-6.188-.422a3.554 3.554 0 0 1-2.015-2.015c-.563-1.36-.422-4.641-.422-6.188 0-1.5-.14-4.781.422-6.188a3.616 3.616 0 0 1 2.015-1.968c1.36-.563 4.641-.422 6.188-.422 1.5 0 4.781-.14 6.188.422.89.328 1.593 1.078 1.968 1.969.563 1.406.422 4.687.422 6.187 0 1.547.14 4.828-.422 6.188Z" fill="currentColor"></path></svg>
+                            </a>
+                            <p class="text-[10px] md:text-xs text-gray-500 mt-1 md:mt-2 font-medium text-center">追蹤 Instagram</p>
+                        </div>
+                    </div>
                 </div>
 
             </div>
 
-            <div class="border-t border-gray-100 pt-8 text-center text-gray-400 text-sm font-medium">
+            <div class="border-t border-gray-100 pt-4 md:pt-8 text-center text-gray-400 text-xs md:text-sm font-medium">
                 <p>&copy; 2025 K-Link Pro. All rights reserved. Made for professional sellers.</p>
             </div>
         </div>

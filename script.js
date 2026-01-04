@@ -1,6 +1,60 @@
 // Initialize Lucide icons
 lucide.createIcons();
 
+// Random Hero Title
+const heroTitles = [
+    '把對帳、通知、訂單整理自動化<br>每天少回一堆訊息，提早下班',
+    '告別手動對帳地獄<br>一鍵完成繁瑣工作，專注賺錢',
+    '自動化代購管理系統<br>讓你每天多出 3 小時做更重要的事',
+    '不再為對帳熬夜到半夜<br>系統幫妳處理，輕鬆賺錢',
+    '一鍵對帳、自動通知、買家自助查詢<br>代購管理從此變簡單',
+    '把重複工作交給系統<br>你只需要專注賺錢',
+    '告別 Excel 地獄<br>將時間還給採購與生活',
+    '自動化對帳與通知<br>讓代購工作變得更輕鬆、更賺錢',
+    '買家查詢自動化，讓你專注於 VIP 服務，而非重複問答。'
+];
+
+// Random Hero Badge
+const heroBadges = [
+    '給日韓/kpop/動漫/美妝代購的「對帳＋通知＋查詢」工具',
+    '專為代購主打造的「自動對帳＋通知＋查詢」系統',
+    '代購管理自動化工具｜對帳、通知、查詢一次搞定',
+    '告別手動對帳地獄｜代購管理系統',
+    '自動化代購管理｜對帳、通知、查詢整合工具',
+    '代購主必備｜自動對帳與通知系統',
+    '專業代購管理工具｜一鍵對帳、自動通知',
+    '代購自動化系統｜對帳、通知、查詢工作流',
+    '【代購專用】自動化中樞'
+];
+
+function setRandomHeroTitle() {
+    const heroTitleElement = document.getElementById('hero-title');
+    if (heroTitleElement) {
+        const randomIndex = Math.floor(Math.random() * heroTitles.length);
+        heroTitleElement.innerHTML = heroTitles[randomIndex];
+    }
+}
+
+function setRandomHeroBadge() {
+    const heroBadgeElement = document.getElementById('hero-badge');
+    if (heroBadgeElement) {
+        const randomIndex = Math.floor(Math.random() * heroBadges.length);
+        heroBadgeElement.textContent = heroBadges[randomIndex];
+    }
+}
+
+// Set random title and badge when page loads
+function initRandomHero() {
+    setRandomHeroTitle();
+    setRandomHeroBadge();
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initRandomHero);
+} else {
+    initRandomHero();
+}
+
 // Demo Data
 const demoData = {
     currentProject: 'cortis',
@@ -678,8 +732,8 @@ const featureTabs = {
             videoSrc: 'https://rppl0rsu6jd4zda6.public.blob.vercel-storage.com/klink_demo_Reconciliation.mp4'
         },
         sorting: {
-            title: '小卡配位',
-            description: '獨家開發的算法模型，基於下單順序與志願序，自動完成最公平的小卡配位工作，公正公開。',
+            title: '小卡配位系統',
+            description: '基於下單順序與志願序自動完成最公平的配位工作，並保留每筆配位紀錄，方便回查與對外說明。',
             videoSrc: 'https://rppl0rsu6jd4zda6.public.blob.vercel-storage.com/klink_demo_sorting.mp4'
         },
         query: {
@@ -720,10 +774,22 @@ const featureTabs = {
         const placeholder = document.getElementById('feature-video-placeholder');
         const titleEl = document.getElementById('feature-title');
         const descEl = document.getElementById('feature-description');
+        const pointsEl = document.getElementById('feature-points');
         
         // Update text content
         if (titleEl) titleEl.textContent = data.title;
         if (descEl) descEl.textContent = data.description;
+        
+        // Show/hide feature points for sorting
+        if (pointsEl) {
+            if (tabName === 'sorting') {
+                pointsEl.classList.remove('hidden');
+                // Reinitialize icons
+                lucide.createIcons();
+            } else {
+                pointsEl.classList.add('hidden');
+            }
+        }
         
         // Mobile: Move video container below active button
         this.moveVideoContainerForMobile(activeBtn);
@@ -951,12 +1017,14 @@ const featureTabs = {
     },
     
     moveVideoContainerForMobile(activeTab) {
-        // Use querySelector with attribute selector to find the sticky container
-        const videoContainer = document.querySelector('[class*="lg:sticky"]') || 
-                               document.querySelector('.lg\\:sticky') ||
-                               document.querySelector('.lg\\:top-24');
+        if (!activeTab) return;
         
-        if (!videoContainer || !activeTab) return;
+        // Find the video container (the sticky wrapper div)
+        const videoContainer = document.getElementById('feature-video-wrapper') ||
+                               document.querySelector('.lg\\:sticky') || 
+                               document.querySelector('[class*="lg:sticky"]');
+        
+        if (!videoContainer) return;
         
         // Check if we're on mobile (screen width < 1024px)
         const isMobile = window.innerWidth < 1024;
@@ -977,9 +1045,14 @@ const featureTabs = {
             const gridContainer = document.querySelector('.grid.lg\\:grid-cols-2');
             
             if (gridContainer && !gridContainer.contains(videoContainer)) {
-                // Move video back to grid container (will be on right side due to grid layout)
-                videoContainer.remove();
-                gridContainer.appendChild(videoContainer);
+                // Find the tabs container
+                const tabsContainer = document.querySelector('.space-y-3, .space-y-4');
+                if (tabsContainer && tabsContainer.contains(videoContainer)) {
+                    // Remove from tabs container
+                    videoContainer.remove();
+                    // Append to grid container (will be on right side due to grid layout)
+                    gridContainer.appendChild(videoContainer);
+                }
             }
         }
     }
@@ -1007,75 +1080,149 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }, 250);
     });
-    
-    // Footer contact form handler
-    const footerForm = document.getElementById('footer-contact-form');
-    const footerMessage = document.getElementById('footer-form-message');
-    
-    if (footerForm) {
-        footerForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(footerForm);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const message = formData.get('message');
-            
-            // Show loading state
-            const submitBtn = footerForm.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = '送出中...';
-            submitBtn.disabled = true;
-            
-            // Send to Vercel API endpoint
-            fetch('/api/contact', {
-                method: 'POST',
-                headers: { 
-                    'Content-Type': 'application/json' 
-                },
-                body: JSON.stringify({ name, email, message })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    // Show success message
-                    footerMessage.textContent = '✓ 訊息已送出！我們會在 24 小時內回覆您。';
-                    footerMessage.className = 'mt-3 text-sm text-green-600 font-medium';
-                    footerMessage.classList.remove('hidden');
-                    
-                    // Reset form
-                    footerForm.reset();
-                } else {
-                    // Show error message
-                    footerMessage.textContent = '✗ 送出失敗，請稍後再試。';
-                    footerMessage.className = 'mt-3 text-sm text-red-600 font-medium';
-                    footerMessage.classList.remove('hidden');
-                }
-                
-                // Reset button
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-                
-                // Hide message after 5 seconds
-                setTimeout(() => {
-                    footerMessage.classList.add('hidden');
-                }, 5000);
-            })
-            .catch(error => {
-                console.error('Error submitting form:', error);
-                footerMessage.textContent = '✗ 送出失敗，請稍後再試。';
-                footerMessage.className = 'mt-3 text-sm text-red-600 font-medium';
-                footerMessage.classList.remove('hidden');
-                
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-                
-                setTimeout(() => {
-                    footerMessage.classList.add('hidden');
-                }, 5000);
-            });
-        });
-    }
 });
 
+// Quiz UI Controller
+const quizUI = {
+    init() {
+        const quizForm = document.getElementById('quiz-form');
+        if (quizForm) {
+            quizForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                this.calculateResult();
+            });
+        }
+    },
+
+    calculateResult() {
+        const checkboxes = document.querySelectorAll('#quiz-form input[type="checkbox"]:checked');
+        const score = checkboxes.length * 10; // Each question is 10 points
+        
+        this.showResult(score);
+    },
+
+    showResult(score) {
+        const formContainer = document.getElementById('quiz-form-container');
+        const resultContainer = document.getElementById('quiz-result-container');
+        const resultIcon = document.getElementById('quiz-result-icon');
+        const resultTitle = document.getElementById('quiz-result-title');
+        const resultScore = document.getElementById('quiz-result-score');
+        const resultDescription = document.getElementById('quiz-result-description');
+        const ctaButton = document.getElementById('quiz-cta-button');
+
+        // Hide form, show result
+        formContainer.classList.add('hidden');
+        resultContainer.classList.remove('hidden');
+
+        // Determine result based on score
+        let iconClass, scoreColorClass, title, description, ctaText;
+        
+        if (score >= 70) {
+            // 70分以上：很需要換系統
+            iconClass = 'bg-red-50 text-red-500';
+            scoreColorClass = 'text-2xl font-black mb-6 text-red-500';
+            title = '全中的話，別猶豫了。妳值得更好的工作方式。';
+            description = '妳的代購模式已經嚴重影響工作效率了！K-Link Pro 可以幫妳自動化對帳、通知和查詢，讓妳每天至少省下 2-3 小時，專注在真正重要的事情上。';
+            ctaText = '領取我的自動化救星 (免費試用)';
+        } else if (score >= 50) {
+            // 50分以上：還在咬牙死撐，也可以換
+            iconClass = 'bg-amber-50 text-amber-500';
+            scoreColorClass = 'text-2xl font-black mb-6 text-amber-500';
+            title = '妳還在咬牙死撐嗎？';
+            description = '雖然目前還能應付，但隨著訂單增加，問題只會越來越嚴重。現在就開始使用 K-Link Pro，讓系統幫妳分擔工作，未來擴展時才不會手忙腳亂。';
+            ctaText = '領取我的自動化救星 (免費試用)';
+        } else if (score >= 30) {
+            // 30-40分：推薦可以換系統
+            iconClass = 'bg-blue-50 text-blue-500';
+            scoreColorClass = 'text-2xl font-black mb-6 text-blue-500';
+            title = '是時候升級妳的工作方式了！';
+            description = '雖然目前還能應付，但 K-Link Pro 可以讓妳的工作更輕鬆、更有效率。自動化對帳和通知功能，讓妳有更多時間專注在業務拓展上。';
+            ctaText = '領取我的自動化救星 (免費試用)';
+        } else {
+            // 10-20分：工作模式還很健康，也可以看看系統
+            iconClass = 'bg-green-50 text-green-500';
+            scoreColorClass = 'text-2xl font-black mb-6 text-green-500';
+            title = '妳目前的工作模式還很健康！';
+            description = '不過，隨著業務成長，K-Link Pro 可以幫妳提前準備好自動化工具。現在就開始熟悉系統，未來訂單增加時就能無縫接軌，輕鬆應對。';
+            ctaText = '先看看系統能為我做什麼 (免費試用)';
+        }
+
+        // Set icon
+        resultIcon.className = `w-20 h-20 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-soft ${iconClass}`;
+        const iconElement = document.createElement('i');
+        if (score >= 70) {
+            iconElement.setAttribute('data-lucide', 'alert-circle');
+        } else if (score >= 50) {
+            iconElement.setAttribute('data-lucide', 'trending-up');
+        } else if (score >= 30) {
+            iconElement.setAttribute('data-lucide', 'lightbulb');
+        } else {
+            iconElement.setAttribute('data-lucide', 'check-circle');
+        }
+        resultIcon.innerHTML = '';
+        resultIcon.appendChild(iconElement);
+        lucide.createIcons();
+
+        // Set content
+        resultTitle.textContent = title;
+        resultScore.textContent = `測驗分數：${score} 分`;
+        resultScore.className = scoreColorClass;
+        resultDescription.textContent = description;
+        ctaButton.textContent = ctaText;
+
+        // Smooth scroll to result
+        resultContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    },
+
+    resetQuiz() {
+        const formContainer = document.getElementById('quiz-form-container');
+        const resultContainer = document.getElementById('quiz-result-container');
+        const checkboxes = document.querySelectorAll('#quiz-form input[type="checkbox"]');
+
+        // Uncheck all checkboxes
+        checkboxes.forEach(checkbox => {
+            checkbox.checked = false;
+        });
+
+        // Hide result, show form
+        resultContainer.classList.add('hidden');
+        formContainer.classList.remove('hidden');
+
+        // Scroll to form
+        formContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+};
+
+// Initialize quiz when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        quizUI.init();
+    });
+} else {
+    quizUI.init();
+}
+
+// FAQ Accordion Controller
+const faqUI = {
+    toggle(index) {
+        const faqItem = document.querySelector(`[data-faq="${index}"]`);
+        if (!faqItem) return;
+
+        const answer = faqItem.querySelector('.faq-answer');
+        const icon = faqItem.querySelector('.faq-icon');
+        const isOpen = !answer.classList.contains('hidden');
+
+        if (isOpen) {
+            // Close
+            answer.classList.add('hidden');
+            if (icon) icon.style.transform = 'rotate(0deg)';
+        } else {
+            // Open
+            answer.classList.remove('hidden');
+            if (icon) icon.style.transform = 'rotate(180deg)';
+        }
+
+        // Reinitialize icons after toggle
+        lucide.createIcons();
+    }
+};

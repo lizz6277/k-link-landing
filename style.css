@@ -93,9 +93,11 @@ body {
     /* Ensure all containers respect viewport width */
     section {
         overflow-x: hidden;
+        overflow-y: visible;
         width: 100%;
         max-width: 100%;
     }
+    
     
     /* Fix any elements that might overflow */
     .max-w-7xl,
