@@ -98,6 +98,45 @@ body {
         max-width: 100%;
     }
     
+    /* Fix features section scrolling issue on mobile */
+    #features {
+        overflow: visible !important;
+    }
+    
+    #features-container {
+        overflow: visible !important;
+        position: relative !important;
+    }
+    
+    #features-container .grid {
+        overflow: visible !important;
+    }
+    
+    #features-container .space-y-3,
+    #features-container .space-y-4 {
+        overflow: visible !important;
+        position: relative !important;
+    }
+    
+    #feature-video-wrapper {
+        position: relative !important;
+    }
+    
+    @media (max-width: 1023px) {
+        #feature-video-wrapper {
+            position: relative !important;
+            top: auto !important;
+            z-index: auto !important;
+            margin-bottom: 2rem !important;
+            margin-top: 1.5rem !important;
+        }
+        
+        /* Ensure video container doesn't overlap content below */
+        #feature-video-wrapper + * {
+            margin-top: 0 !important;
+        }
+    }
+    
     
     /* Fix any elements that might overflow */
     .max-w-7xl,
