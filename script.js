@@ -46,13 +46,31 @@ function setRandomHeroBadge() {
 // Set random title and badge when page loads
 function initRandomHero() {
     setRandomHeroTitle();
-    setRandomHeroBadge();
+    // setRandomHeroBadge(); // Keeping the new static badge for now
 }
 
+// Workflow Progress Bar - Redesigned
+function initWorkflowProgress() {
+    // Current redesign doesn't use the progress bar, so we can keep this empty or remove
+}
+
+// ... existing code ...
+
+// Quiz UI Controller - Removed as Quiz section is removed
+/*
+const quizUI = {
+    ...
+};
+*/
+
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initRandomHero);
+    document.addEventListener('DOMContentLoaded', () => {
+        initRandomHero();
+        initWorkflowProgress();
+    });
 } else {
     initRandomHero();
+    initWorkflowProgress();
 }
 
 // Demo Data
@@ -167,15 +185,15 @@ const demoUI = {
             
             return `
                 <div class="project-card-wrapper">
-                    <div class="bg-white rounded-2xl md:rounded-3xl p-4 md:p-8 shadow-soft border-2 ${isActive ? 'border-lilac-300' : 'border-gray-100'} transition-all cursor-pointer" onclick="demoUI.switchProject('${key}')">
+                    <div class="bg-white rounded-3xl md:rounded-2xl p-4 md:p-8 shadow-soft border-2 ${isActive ? 'border-lilac-300' : 'border-gray-100'} transition-all cursor-pointer" onclick="demoUI.switchProject('${key}')">
                         <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                             <div class="flex items-start md:items-center space-x-3 md:space-x-4 flex-1 min-w-0">
-                                <div class="w-12 h-12 md:w-16 md:h-16 bg-lilac-50 text-lilac-400 rounded-xl md:rounded-2xl flex items-center justify-center shadow-lilac-glow flex-shrink-0">
+                                <div class="w-12 h-12 md:w-16 md:h-16 bg-lilac-50 text-lilac-400 rounded-md md:rounded-3xl flex items-center justify-center shadow-lilac-glow flex-shrink-0">
                                     <i data-lucide="package" class="w-6 h-6 md:w-8 md:h-8"></i>
                                 </div>
                                 <div class="flex-1 min-w-0">
                                     <div class="flex flex-wrap items-center gap-2 mb-2">
-                                        <span class="px-2 md:px-3 py-1 bg-lilac-50 text-lilac-500 text-[10px] font-black uppercase rounded-lg">開團中</span>
+                                        <span class="px-2 md:px-3 py-1 bg-lilac-50 text-lilac-500 text-[10px] font-black uppercase rounded-md">開團中</span>
                                         <h4 class="text-base md:text-xl font-black text-gray-900 break-words">${project.name}</h4>
                                     </div>
                                     <p class="text-xs md:text-sm text-gray-400 font-medium mb-1 md:mb-2">${project.description}</p>
@@ -183,7 +201,7 @@ const demoUI = {
                                 </div>
                             </div>
                             ${isActive ? `
-                            <button onclick="demoUI.showProjectOrders('${key}'); event.stopPropagation();" id="demo-project-toggle-${key}" class="w-full md:w-auto px-4 md:px-6 py-2.5 md:py-3 bg-dark text-white rounded-xl md:rounded-2xl text-sm md:text-base font-black hover:bg-lilac-600 transition-all flex items-center justify-center space-x-2">
+                            <button onclick="demoUI.showProjectOrders('${key}'); event.stopPropagation();" id="demo-project-toggle-${key}" class="w-full md:w-auto px-4 md:px-6 py-2.5 md:py-3 bg-dark text-white rounded-3xl md:rounded-3xl text-sm md:text-base font-black hover:bg-lilac-600 transition-all flex items-center justify-center space-x-2">
                                 <i data-lucide="${hasOrdersVisible ? 'chevron-up' : 'chevron-down'}" class="w-4 h-4" id="demo-toggle-icon-${key}"></i>
                                 <span>查看訂單</span>
                             </button>
@@ -226,24 +244,24 @@ const demoUI = {
         const hasSorting = currentProject.hasSorting;
         
         ordersSection.innerHTML = `
-            <div class="bg-white rounded-2xl md:rounded-3xl shadow-soft border border-gray-100 overflow-hidden">
+            <div class="bg-white rounded-3xl md:rounded-2xl shadow-soft border border-gray-100 overflow-hidden">
                 <div class="px-4 md:px-8 py-4 md:py-6 border-b border-gray-100 flex flex-col md:flex-row md:justify-between md:items-center gap-4 bg-gray-50/30">
                     <div>
                         <h4 class="text-base md:text-lg font-black">訂單列表</h4>
                         <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1">共 <span id="demo-order-count-${projectKey}">${currentProject.orders.length}</span> 筆訂單</p>
                     </div>
                     <div class="flex flex-wrap gap-2 md:space-x-3">
-                        <button onclick="demoUI.openReconciliationModal()" id="demo-reconcile-btn" class="flex-1 md:flex-none px-3 md:px-5 py-2 md:py-2.5 bg-dark text-white rounded-lg md:rounded-xl text-xs md:text-sm font-black hover:bg-lilac-600 transition-all flex items-center justify-center space-x-1 md:space-x-2">
+                        <button onclick="demoUI.openReconciliationModal()" id="demo-reconcile-btn" class="flex-1 md:flex-none px-3 md:px-5 py-2 md:py-2.5 bg-dark text-white rounded-3xl md:rounded-3xl text-xs md:text-sm font-black hover:bg-lilac-600 transition-all flex items-center justify-center space-x-1 md:space-x-2">
                             <i data-lucide="check-circle" class="w-3 h-3 md:w-4 md:h-4"></i>
                             <span class="whitespace-nowrap">執行對帳</span>
                         </button>
                         ${hasSorting ? `
-                        <button onclick="demoUI.runSorting()" id="demo-sort-btn" class="flex-1 md:flex-none px-3 md:px-5 py-2 md:py-2.5 bg-dark text-white rounded-lg md:rounded-xl text-xs md:text-sm font-black hover:bg-lilac-600 transition-all flex items-center justify-center space-x-1 md:space-x-2">
+                        <button onclick="demoUI.runSorting()" id="demo-sort-btn" class="flex-1 md:flex-none px-3 md:px-5 py-2 md:py-2.5 bg-dark text-white rounded-3xl md:rounded-3xl text-xs md:text-sm font-black hover:bg-lilac-600 transition-all flex items-center justify-center space-x-1 md:space-x-2">
                             <i data-lucide="sparkles" class="w-3 h-3 md:w-4 md:h-4"></i>
                             <span class="whitespace-nowrap">執行配位</span>
                         </button>
                         ` : ''}
-                        <button onclick="demoUI.openNotificationModal()" id="demo-notification-btn" class="flex-1 md:flex-none px-3 md:px-5 py-2 md:py-2.5 bg-dark text-white rounded-lg md:rounded-xl text-xs md:text-sm font-black hover:bg-lilac-600 transition-all flex items-center justify-center space-x-1 md:space-x-2">
+                        <button onclick="demoUI.openNotificationModal()" id="demo-notification-btn" class="flex-1 md:flex-none px-3 md:px-5 py-2 md:py-2.5 bg-dark text-white rounded-3xl md:rounded-3xl text-xs md:text-sm font-black hover:bg-lilac-600 transition-all flex items-center justify-center space-x-1 md:space-x-2">
                             <i data-lucide="mail" class="w-3 h-3 md:w-4 md:h-4"></i>
                             <span class="whitespace-nowrap">寄送通知</span>
                         </button>
@@ -317,7 +335,7 @@ const demoUI = {
                     </td>
                     ${wishesCell}
                     <td class="px-3 md:px-8 py-2 md:py-4 text-center">
-                        <span class="px-2 md:px-3 py-0.5 md:py-1 rounded-lg text-[9px] md:text-[10px] font-black uppercase ${
+                        <span class="px-2 md:px-3 py-0.5 md:py-1 rounded-md text-[9px] md:text-[10px] font-black uppercase ${
                             order.status === '已配位' ? 'bg-lilac-50 text-lilac-500' :
                             order.status === '已對帳' ? 'bg-green-50 text-green-500' : 
                             'bg-amber-50 text-amber-500'
@@ -618,7 +636,7 @@ const demoUI = {
                 
                 // Show success message
                 const successMsg = document.createElement('div');
-                successMsg.className = 'fixed top-6 right-6 bg-lilac-50 border border-lilac-100 p-4 rounded-2xl shadow-premium z-[300]';
+                successMsg.className = 'fixed top-6 right-6 bg-lilac-50 border border-lilac-100 p-4 rounded-3xl shadow-premium z-[300]';
                 successMsg.innerHTML = `
                     <div class="flex items-center space-x-3">
                         <i data-lucide="sparkles" class="w-5 h-5 text-lilac-500"></i>
@@ -696,7 +714,7 @@ const demoUI = {
             
             // Show success message
             const successMsg = document.createElement('div');
-            successMsg.className = 'fixed top-6 right-6 bg-lilac-50 border border-lilac-100 p-4 rounded-2xl shadow-premium z-[300]';
+            successMsg.className = 'fixed top-6 right-6 bg-lilac-50 border border-lilac-100 p-4 rounded-3xl shadow-premium z-[300]';
             successMsg.innerHTML = `
                 <div class="flex items-center space-x-3">
                     <i data-lucide="mail" class="w-5 h-5 text-lilac-500"></i>
@@ -878,126 +896,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 250);
     });
 });
-
-// Quiz UI Controller
-const quizUI = {
-    init() {
-        const quizForm = document.getElementById('quiz-form');
-        if (quizForm) {
-            quizForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                this.calculateResult();
-            });
-        }
-    },
-
-    calculateResult() {
-        const checkboxes = document.querySelectorAll('#quiz-form input[type="checkbox"]:checked');
-        const score = checkboxes.length * 10; // Each question is 10 points
-        
-        this.showResult(score);
-    },
-
-    showResult(score) {
-        const formContainer = document.getElementById('quiz-form-container');
-        const resultContainer = document.getElementById('quiz-result-container');
-        const resultIcon = document.getElementById('quiz-result-icon');
-        const resultTitle = document.getElementById('quiz-result-title');
-        const resultScore = document.getElementById('quiz-result-score');
-        const resultDescription = document.getElementById('quiz-result-description');
-        const ctaButton = document.getElementById('quiz-cta-button');
-
-        // Hide form, show result
-        formContainer.classList.add('hidden');
-        resultContainer.classList.remove('hidden');
-
-        // Determine result based on score
-        let iconClass, scoreColorClass, title, description, ctaText;
-        
-        if (score >= 70) {
-            // 70分以上：很需要換系統
-            iconClass = 'bg-red-50 text-red-500';
-            scoreColorClass = 'text-2xl font-black mb-6 text-red-500';
-            title = '全中的話，別猶豫了。妳值得更好的工作方式。';
-            description = '妳的代購模式已經嚴重影響工作效率了！K-Link Pro 可以幫妳自動化對帳、通知和查詢，讓妳每天至少省下 2-3 小時，專注在真正重要的事情上。';
-            ctaText = '領取我的自動化救星 (免費試用)';
-        } else if (score >= 50) {
-            // 50分以上：還在咬牙死撐，也可以換
-            iconClass = 'bg-amber-50 text-amber-500';
-            scoreColorClass = 'text-2xl font-black mb-6 text-amber-500';
-            title = '妳還在咬牙死撐嗎？';
-            description = '雖然目前還能應付，但隨著訂單增加，問題只會越來越嚴重。現在就開始使用 K-Link Pro，讓系統幫妳分擔工作，未來擴展時才不會手忙腳亂。';
-            ctaText = '領取我的自動化救星 (免費試用)';
-        } else if (score >= 30) {
-            // 30-40分：推薦可以換系統
-            iconClass = 'bg-blue-50 text-blue-500';
-            scoreColorClass = 'text-2xl font-black mb-6 text-blue-500';
-            title = '是時候升級妳的工作方式了！';
-            description = '雖然目前還能應付，但 K-Link Pro 可以讓妳的工作更輕鬆、更有效率。自動化對帳和通知功能，讓妳有更多時間專注在業務拓展上。';
-            ctaText = '領取我的自動化救星 (免費試用)';
-        } else {
-            // 10-20分：工作模式還很健康，也可以看看系統
-            iconClass = 'bg-green-50 text-green-500';
-            scoreColorClass = 'text-2xl font-black mb-6 text-green-500';
-            title = '妳目前的工作模式還很健康！';
-            description = '不過，隨著業務成長，K-Link Pro 可以幫妳提前準備好自動化工具。現在就開始熟悉系統，未來訂單增加時就能無縫接軌，輕鬆應對。';
-            ctaText = '先看看系統能為我做什麼 (免費試用)';
-        }
-
-        // Set icon
-        resultIcon.className = `w-20 h-20 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-soft ${iconClass}`;
-        const iconElement = document.createElement('i');
-        if (score >= 70) {
-            iconElement.setAttribute('data-lucide', 'alert-circle');
-        } else if (score >= 50) {
-            iconElement.setAttribute('data-lucide', 'trending-up');
-        } else if (score >= 30) {
-            iconElement.setAttribute('data-lucide', 'lightbulb');
-        } else {
-            iconElement.setAttribute('data-lucide', 'check-circle');
-        }
-        resultIcon.innerHTML = '';
-        resultIcon.appendChild(iconElement);
-        lucide.createIcons();
-
-        // Set content
-        resultTitle.textContent = title;
-        resultScore.textContent = `測驗分數：${score} 分`;
-        resultScore.className = scoreColorClass;
-        resultDescription.textContent = description;
-        ctaButton.textContent = ctaText;
-
-        // Smooth scroll to result
-        resultContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    },
-
-    resetQuiz() {
-        const formContainer = document.getElementById('quiz-form-container');
-        const resultContainer = document.getElementById('quiz-result-container');
-        const checkboxes = document.querySelectorAll('#quiz-form input[type="checkbox"]');
-
-        // Uncheck all checkboxes
-        checkboxes.forEach(checkbox => {
-            checkbox.checked = false;
-        });
-
-        // Hide result, show form
-        resultContainer.classList.add('hidden');
-        formContainer.classList.remove('hidden');
-
-        // Scroll to form
-        formContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-};
-
-// Initialize quiz when DOM is ready
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-        quizUI.init();
-    });
-} else {
-    quizUI.init();
-}
 
 // FAQ Accordion Controller
 const faqUI = {
