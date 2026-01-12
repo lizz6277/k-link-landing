@@ -261,10 +261,6 @@ const demoUI = {
                             <span class="whitespace-nowrap">執行配位</span>
                         </button>
                         ` : ''}
-                        <button onclick="demoUI.openNotificationModal()" id="demo-notification-btn" class="flex-1 md:flex-none px-3 md:px-5 py-2 md:py-2.5 bg-dark text-white rounded-3xl md:rounded-3xl text-xs md:text-sm font-black hover:bg-lilac-600 transition-all flex items-center justify-center space-x-1 md:space-x-2">
-                            <i data-lucide="mail" class="w-3 h-3 md:w-4 md:h-4"></i>
-                            <span class="whitespace-nowrap">寄送通知</span>
-                        </button>
                     </div>
                 </div>
                 <div class="relative">
@@ -664,67 +660,6 @@ const demoUI = {
         };
         
         setTimeout(() => processOrder(0), 500);
-    },
-    openNotificationModal() {
-        const modal = document.getElementById('demo-notification-modal');
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
-        lucide.createIcons();
-    },
-    closeNotificationModal() {
-        const modal = document.getElementById('demo-notification-modal');
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
-    },
-    sendNotification(type) {
-        const modal = document.getElementById('demo-notification-modal');
-        const btn = type === 'second-chance' 
-            ? document.getElementById('demo-notification-second-chance')
-            : document.getElementById('demo-notification-shipping');
-        
-        // Disable button and show loading
-        btn.disabled = true;
-        const originalHTML = btn.innerHTML;
-        btn.innerHTML = `
-            <div class="flex items-center space-x-3">
-                <div class="w-5 h-5 border-2 border-lilac-100 border-t-lilac-500 rounded-full animate-spin"></div>
-                <div>
-                    <p class="font-black text-sm text-gray-900">發送中...</p>
-                    <p class="text-xs text-gray-400">正在處理</p>
-                </div>
-            </div>
-        `;
-        
-        // Simulate sending notification
-        setTimeout(() => {
-            // Update button to show sent state
-            btn.innerHTML = `
-                <div class="flex items-center space-x-3">
-                    <i data-lucide="check" class="w-5 h-5 text-gray-400"></i>
-                    <div>
-                        <p class="font-black text-sm text-gray-400">${type === 'second-chance' ? '二補下單通知' : '出貨通知'}</p>
-                        <p class="text-xs text-gray-400">已寄送</p>
-                    </div>
-                </div>
-                <i data-lucide="check" class="w-5 h-5 text-gray-400"></i>
-            `;
-            btn.classList.remove('border-gray-100', 'hover:border-lilac-300');
-            btn.classList.add('bg-gray-100', 'cursor-not-allowed');
-            lucide.createIcons();
-            
-            // Show success message
-            const successMsg = document.createElement('div');
-            successMsg.className = 'fixed top-6 right-6 bg-lilac-50 border border-lilac-100 p-4 rounded-3xl shadow-premium z-[300]';
-            successMsg.innerHTML = `
-                <div class="flex items-center space-x-3">
-                    <i data-lucide="mail" class="w-5 h-5 text-lilac-500"></i>
-                    <p class="text-sm font-black text-lilac-600">${type === 'second-chance' ? '二補下單通知' : '出貨通知'}已成功發送給所有買家</p>
-                </div>
-            `;
-            document.body.appendChild(successMsg);
-            lucide.createIcons();
-            setTimeout(() => successMsg.remove(), 3000);
-        }, 1500);
     }
 };
 
@@ -742,8 +677,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Feature Tabs Controller
 const featureTabs = {
-    currentTab: 'reconciliation',
+    currentTab: 'management',
     mediaData: {
+        management: {
+            title: '系統化訂單管理',
+            description: '一站式管理所有代購專案，從訂單進度、付款狀態到出貨資訊一目瞭然。不論是長期代購還是限時團購，都能在同一個看板輕鬆掌控，告別混亂的 Google Sheet 與 LINE 記事本。',
+            imageSrc: 'assets/feature-management.png',
+            alt: '系統化訂單管理示意畫面'
+        },
         reconciliation: {
             title: '自動對帳',
             description: '只需上傳銀行 CSV 明細，系統會自動比對後五碼與金額，準確率達 99.9%，一秒完成百筆訂單確認。',
@@ -876,13 +817,13 @@ const featureTabs = {
 // Initialize first tab on page load
 document.addEventListener('DOMContentLoaded', () => {
     // Set initial active state and load first video
-    const firstTab = document.getElementById('tab-reconciliation');
+    const firstTab = document.getElementById('tab-management');
     if (firstTab) {
         firstTab.classList.add('border-lilac-400', 'bg-lilac-50');
         firstTab.classList.remove('border-gray-100', 'bg-white');
     }
     // Load first tab's video
-    featureTabs.switchTab('reconciliation');
+    featureTabs.switchTab('management');
     
     // Handle window resize to reposition video container
     let resizeTimer;

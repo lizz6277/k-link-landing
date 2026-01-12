@@ -16,8 +16,8 @@
     </script>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="專為日韓代購、K-pop 周邊、美妝精品與各類團購主設計。提供一鍵自動對帳、專屬下單連結及買家進度查詢入口。解決對帳地獄與私訊轟炸，讓代購事業輕鬆自動化，大幅提升 3 倍管理效率。">
-    <meta name="keywords" content="代購系統推薦, 自動對帳工具, 團購管理軟體, 買家查詢系統, 寄信通知自動化, 周邊商品代購, 精品代購管理, 美妝團購, 銀行明細CSV對帳, 訂單自動彙整, 代購管家">
+    <meta name="description" content="專為日韓代購、K-pop 周邊、美妝精品與各類代購、團購主設計。提供一鍵自動對帳、專屬下單連結及買家進度查詢入口。解決對帳地獄與私訊轟炸，讓代購事業輕鬆自動化，大幅提升 3 倍管理效率。">
+    <meta name="keywords" content="代購系統推薦, 自動對帳工具, 團購管理軟體, 團購管理, 代購管理系統, 買家查詢系統, 寄信通知自動化, 周邊商品代購, 精品代購管理, 美妝代購, 代購對帳, 訂單管理, 訂單自動彙整, 代購管理, 便宜的代購管理系統, 有沒有可以自動對帳的系統, 有沒有可以自動對帳的軟體, 有沒有可以自動對帳的工具, 有沒有可以自動對帳的程式">
     <meta name="author" content="K-Link Pro">
     <link rel="canonical" href="https://k-link-landing.vercel.app">
     
@@ -56,11 +56,11 @@
       "featureList": [
         "自動化對帳系統",
         "買家進度查詢入口",
-        "一鍵郵件通知功能",
+        "個人化通知生成功能",
         "Google Sheet 資料匯入"
       ],
       "url": "https://k-link-landing.vercel.app",
-      "screenshot": "https://rppl0rsu6jd4zda6.public.blob.vercel-storage.com/K-Link%20Pro_OG.png"
+      "screenshot": "assets/K-Link Pro_OG.png"
     }
     </script>
     
@@ -115,7 +115,7 @@
           "name": "可以同時管理多個團購專案嗎？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "當然可以！K-Link Pro 支援同時管理多個團購，每個專案都有獨立的訂單列表、對帳記錄與買家查詢中心，讓您輕鬆處理多團而不會混淆。"
+            "text": "當然可以！K-Link Pro 支援同時管理多個團購，每個專案都有獨立的訂單列表、對帳記錄與專案銷售數據，讓您輕鬆處理多團而不會混淆。"
           }
         }
       ]
@@ -130,7 +130,7 @@
       "name": "K-Link Pro",
       "url": "https://k-link-landing.vercel.app",
       "logo": "https://rppl0rsu6jd4zda6.public.blob.vercel-storage.com/K-Link%20Pro_OG.png",
-      "description": "專業代購自動化管理系統，提供一鍵自動對帳、買家查詢與自動化郵件通知功能。",
+      "description": "專業代購自動化管理系統，提供一鍵自動對帳、買家查詢與個人化通知模板。",
       "sameAs": []
     }
     </script>
@@ -488,9 +488,28 @@
                 <!-- Left: Tab Buttons -->
                 <div class="lg:col-span-5 space-y-6">
                     <button 
+                        onclick="featureTabs.switchTab('management')" 
+                        id="tab-management"
+                        class="feature-tab w-full p-8 rounded-[1.25rem] border-2 border-transparent bg-white shadow-soft hover:shadow-premium transition-all text-left group active"
+                        data-tab="management"
+                    >
+                        <div class="flex items-center space-x-6">
+                            <div class="w-16 h-16 bg-blue-50 text-blue-500 rounded-3xl flex items-center justify-center group-hover:scale-110 transition-transform flex-shrink-0 shadow-sm">
+                                <i data-lucide="layout-dashboard" class="w-8 h-8"></i>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <h3 class="text-2xl font-black mb-2 text-gray-900">系統化訂單管理</h3>
+                                <p class="text-sm text-gray-500 font-medium leading-relaxed">
+                                    一站式管理所有代購專案，訂單進度、付款狀態一目瞭然，告別混亂的試算表。
+                                </p>
+                            </div>
+                        </div>
+                    </button>
+
+                    <button 
                         onclick="featureTabs.switchTab('reconciliation')" 
                         id="tab-reconciliation"
-                        class="feature-tab w-full p-8 rounded-[1.25rem] border-2 border-transparent bg-white shadow-soft hover:shadow-premium transition-all text-left group active"
+                        class="feature-tab w-full p-8 rounded-[1.25rem] border-2 border-transparent bg-white shadow-soft hover:shadow-premium transition-all text-left group"
                         data-tab="reconciliation"
                     >
                         <div class="flex items-center space-x-6">
@@ -517,9 +536,9 @@
                                 <i data-lucide="mail" class="w-8 h-8"></i>
                             </div>
                             <div class="flex-1 min-w-0">
-                                <h3 class="text-2xl font-black mb-2 text-gray-900">個人化自動通知</h3>
+                                <h3 class="text-2xl font-black mb-2 text-gray-900">個人化通知模板</h3>
                                 <p class="text-sm text-gray-500 font-medium leading-relaxed">
-                                    不需複製貼上，系統依訂單狀態自動寄送 Email，內容包含專屬查詢連結。
+                                    系統依訂單狀態自動生成個人化通知訊息，讓你不用再花大把時間寫通知訊息。
                                 </p>
                             </div>
                         </div>
@@ -1123,71 +1142,6 @@
         </div>
     </div>
 
-    <!-- Notification Modal -->
-    <div id="demo-notification-modal" class="fixed inset-0 bg-dark/60 backdrop-blur-sm z-[200] hidden items-center justify-center p-6">
-        <div class="bg-white rounded-2xl w-full max-w-md p-10 shadow-premium relative">
-            <button onclick="demoUI.closeNotificationModal()" class="absolute top-6 right-6 text-gray-400 hover:text-dark transition-colors">
-                <i data-lucide="x" class="w-5 h-5"></i>
-            </button>
-            <div class="text-center mb-8">
-                <div class="w-16 h-16 bg-lilac-50 text-lilac-400 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-soft">
-                    <i data-lucide="mail" class="w-8 h-8"></i>
-                </div>
-                <h3 class="text-2xl font-black mb-2">寄送通知</h3>
-                <p class="text-sm text-gray-400 font-medium">選擇要發送的通知類型</p>
-            </div>
-            <div class="space-y-3">
-                <!-- 匯款通知 (已寄過，無法點選) -->
-                <button 
-                    id="demo-notification-payment"
-                    class="w-full p-4 bg-gray-100 text-gray-400 rounded-3xl text-left cursor-not-allowed flex items-center justify-between"
-                    disabled
-                >
-                    <div class="flex items-center space-x-3">
-                        <i data-lucide="dollar-sign" class="w-5 h-5"></i>
-                        <div>
-                            <p class="font-black text-sm">匯款通知</p>
-                            <p class="text-xs text-gray-400">已寄送</p>
-                        </div>
-                    </div>
-                    <i data-lucide="check" class="w-5 h-5 text-gray-400"></i>
-                </button>
-                
-                <!-- 二補下單通知 -->
-                <button 
-                    onclick="demoUI.sendNotification('second-chance')"
-                    id="demo-notification-second-chance"
-                    class="w-full p-4 bg-white border-2 border-gray-100 hover:border-lilac-300 rounded-3xl text-left transition-all flex items-center justify-between group"
-                >
-                    <div class="flex items-center space-x-3">
-                        <i data-lucide="shopping-cart" class="w-5 h-5 text-lilac-500"></i>
-                        <div>
-                            <p class="font-black text-sm text-gray-900">二補下單通知</p>
-                            <p class="text-xs text-gray-400">發送給所有買家</p>
-                        </div>
-                    </div>
-                    <i data-lucide="chevron-right" class="w-5 h-5 text-gray-300 group-hover:text-lilac-500 transition-colors"></i>
-                </button>
-                
-                <!-- 出貨通知 -->
-                <button 
-                    onclick="demoUI.sendNotification('shipping')"
-                    id="demo-notification-shipping"
-                    class="w-full p-4 bg-white border-2 border-gray-100 hover:border-lilac-300 rounded-3xl text-left transition-all flex items-center justify-between group"
-                >
-                    <div class="flex items-center space-x-3">
-                        <i data-lucide="truck" class="w-5 h-5 text-lilac-500"></i>
-                        <div>
-                            <p class="font-black text-sm text-gray-900">出貨通知</p>
-                            <p class="text-xs text-gray-400">發送物流資訊</p>
-                        </div>
-                    </div>
-                    <i data-lucide="chevron-right" class="w-5 h-5 text-gray-300 group-hover:text-lilac-500 transition-colors"></i>
-                </button>
-            </div>
-        </div>
-    </div>
-
     <footer class="bg-dark pt-24 pb-12 overflow-hidden relative">
         <div class="absolute inset-0 bg-lilac-500/5 blur-[120px] pointer-events-none"></div>
         <div class="max-w-7xl mx-auto px-8 relative z-10">
@@ -1196,17 +1150,17 @@
                     <div class="flex items-center space-x-3 mb-8">
                         <div class="w-8 h-8 bg-lilac-500 rounded-md flex items-center justify-center">
                             <i data-lucide="package" class="text-white w-5 h-5"></i>
-                        </div>
+                </div>
                         <span class="text-xl font-black tracking-tighter text-white">K-Link <span class="text-lilac-500">Pro.</span></span>
-                    </div>
+            </div>
                     <p class="text-gray-400 font-medium leading-relaxed">
                         專為代購主打造的智慧管理平台，<br>
                         讓繁瑣的對帳與通知成為過去，<br>
                         讓你專注於更好的採購與生活。
                     </p>
-                </div>
+                        </div>
 
-                <div>
+                        <div>
                     <h4 class="text-white font-black mb-8 uppercase tracking-widest text-xs">產品功能</h4>
                     <ul class="space-y-4 text-gray-500 font-medium">
                         <li><a href="#features" class="hover:text-lilac-400 transition-colors">自動對帳系統</a></li>
@@ -1214,16 +1168,16 @@
                         <li><a href="#features" class="hover:text-lilac-400 transition-colors">一鍵通知功能</a></li>
                         <li><a href="#features" class="hover:text-lilac-400 transition-colors">小卡配位系統</a></li>
                     </ul>
-                </div>
+                        </div>
 
-                <div>
+                        <div>
                     <h4 class="text-white font-black mb-8 uppercase tracking-widest text-xs">資源連結</h4>
                     <ul class="space-y-4 text-gray-500 font-medium">
                         <li><a href="#faq" class="hover:text-lilac-400 transition-colors">常見問題</a></li>
                         <li><a href="#demo" class="hover:text-lilac-400 transition-colors">Demo 體驗</a></li>
                         <li><a href="#cta" class="hover:text-lilac-400 transition-colors">Beta 申請</a></li>
                     </ul>
-                        </div>
+                </div>
 
                 <div>
                     <h4 class="text-white font-black mb-8 uppercase tracking-widest text-xs">聯繫我們</h4>
