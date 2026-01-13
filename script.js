@@ -710,10 +710,10 @@ const featureTabs = {
             alt: '一鍵匯入示意畫面'
         },
         notification: {
-            title: '寄送通知',
-            description: '一鍵發送匯款、二補下單與出貨通知，自動化溝通流程，減少重複性工作。',
+            title: '自動生成通知內容',
+            description: '一鍵複製個人化通知內容與買家信箱，讓你不用再花大把時間寫通知訊息。',
             imageSrc: 'assets/feature-notification.png',
-            alt: '寄送通知示意畫面'
+            alt: '通知中心示意畫面'
         }
     },
     
