@@ -63,61 +63,16 @@ const quizUI = {
 };
 */
 
-// Mobile Menu Toggle
-function initMobileMenu() {
-    const menuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const menuIcon = document.getElementById('menu-icon');
-    const closeBtn = document.getElementById('mobile-menu-close');
-    const menuLinks = document.querySelectorAll('.mobile-menu-link');
-    
-    function openMenu() {
-        mobileMenu.classList.remove('hidden');
-        menuIcon.setAttribute('data-lucide', 'x');
-        lucide.createIcons();
-        document.body.style.overflow = 'hidden';
-    }
-    
-    function closeMenu() {
-        mobileMenu.classList.add('hidden');
-        menuIcon.setAttribute('data-lucide', 'menu');
-        lucide.createIcons();
-        document.body.style.overflow = '';
-    }
-    
-    if (menuBtn && mobileMenu) {
-        // Open menu
-        menuBtn.addEventListener('click', openMenu);
-        
-        // Close button
-        if (closeBtn) {
-            closeBtn.addEventListener('click', closeMenu);
-        }
-        
-        // Close menu when clicking on a link
-        menuLinks.forEach(link => {
-            link.addEventListener('click', closeMenu);
-        });
-        
-        // Close menu when clicking outside (on the overlay background)
-        mobileMenu.addEventListener('click', (e) => {
-            if (e.target === mobileMenu) {
-                closeMenu();
-            }
-        });
-    }
-}
+// Mobile Menu Toggle - Removed (no hamburger menu on mobile)
 
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
         initRandomHero();
         initWorkflowProgress();
-        initMobileMenu();
     });
 } else {
     initRandomHero();
     initWorkflowProgress();
-    initMobileMenu();
 }
 
 // Demo Data
