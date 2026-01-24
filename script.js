@@ -63,14 +63,61 @@ const quizUI = {
 };
 */
 
+// Mobile Menu Toggle
+function initMobileMenu() {
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    const menuLinks = document.querySelectorAll('.mobile-menu-link');
+    
+    if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.setAttribute('data-lucide', 'x');
+                lucide.createIcons();
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.setAttribute('data-lucide', 'menu');
+                lucide.createIcons();
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Close menu when clicking on a link
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.setAttribute('data-lucide', 'menu');
+                lucide.createIcons();
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // Close menu when clicking outside
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) {
+                mobileMenu.classList.add('hidden');
+                menuIcon.setAttribute('data-lucide', 'menu');
+                lucide.createIcons();
+                document.body.style.overflow = '';
+            }
+        });
+    }
+}
+
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
         initRandomHero();
         initWorkflowProgress();
+        initMobileMenu();
     });
 } else {
     initRandomHero();
     initWorkflowProgress();
+    initMobileMenu();
 }
 
 // Demo Data
