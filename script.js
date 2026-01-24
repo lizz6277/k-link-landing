@@ -68,41 +68,41 @@ function initMobileMenu() {
     const menuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     const menuIcon = document.getElementById('menu-icon');
+    const closeBtn = document.getElementById('mobile-menu-close');
     const menuLinks = document.querySelectorAll('.mobile-menu-link');
     
+    function openMenu() {
+        mobileMenu.classList.remove('hidden');
+        menuIcon.setAttribute('data-lucide', 'x');
+        lucide.createIcons();
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeMenu() {
+        mobileMenu.classList.add('hidden');
+        menuIcon.setAttribute('data-lucide', 'menu');
+        lucide.createIcons();
+        document.body.style.overflow = '';
+    }
+    
     if (menuBtn && mobileMenu) {
-        menuBtn.addEventListener('click', () => {
-            const isHidden = mobileMenu.classList.contains('hidden');
-            if (isHidden) {
-                mobileMenu.classList.remove('hidden');
-                menuIcon.setAttribute('data-lucide', 'x');
-                lucide.createIcons();
-                document.body.style.overflow = 'hidden';
-            } else {
-                mobileMenu.classList.add('hidden');
-                menuIcon.setAttribute('data-lucide', 'menu');
-                lucide.createIcons();
-                document.body.style.overflow = '';
-            }
-        });
+        // Open menu
+        menuBtn.addEventListener('click', openMenu);
+        
+        // Close button
+        if (closeBtn) {
+            closeBtn.addEventListener('click', closeMenu);
+        }
         
         // Close menu when clicking on a link
         menuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                menuIcon.setAttribute('data-lucide', 'menu');
-                lucide.createIcons();
-                document.body.style.overflow = '';
-            });
+            link.addEventListener('click', closeMenu);
         });
         
-        // Close menu when clicking outside
+        // Close menu when clicking outside (on the overlay background)
         mobileMenu.addEventListener('click', (e) => {
             if (e.target === mobileMenu) {
-                mobileMenu.classList.add('hidden');
-                menuIcon.setAttribute('data-lucide', 'menu');
-                lucide.createIcons();
-                document.body.style.overflow = '';
+                closeMenu();
             }
         });
     }

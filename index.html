@@ -206,9 +206,16 @@
             </button>
         </div>
         <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="fixed inset-0 bg-white/95 backdrop-blur-lg z-40 hidden md:hidden pt-16">
+        <div id="mobile-menu" class="fixed inset-0 bg-white z-40 hidden md:hidden">
             <div class="flex flex-col h-full">
-                <div class="px-6 py-4 space-y-1">
+                <!-- Close Button -->
+                <div class="flex justify-end p-4 border-b border-gray-100">
+                    <button id="mobile-menu-close" class="min-w-[44px] min-h-[44px] flex items-center justify-center bg-lilac-50 rounded-lg hover:bg-lilac-100 transition-colors cursor-pointer" aria-label="關閉選單">
+                        <i data-lucide="x" class="w-5 h-5 text-lilac-600"></i>
+                    </button>
+                </div>
+                <!-- Menu Items -->
+                <div class="flex-1 px-6 py-4 space-y-1 overflow-y-auto">
                     <a href="#hero" class="mobile-menu-link block py-3 px-4 text-gray-700 font-bold rounded-lg hover:bg-lilac-50 hover:text-lilac-600 transition-colors">首頁</a>
                     <a href="#workflow" class="mobile-menu-link block py-3 px-4 text-gray-700 font-bold rounded-lg hover:bg-lilac-50 hover:text-lilac-600 transition-colors">效率引擎</a>
                     <a href="#features" class="mobile-menu-link block py-3 px-4 text-gray-700 font-bold rounded-lg hover:bg-lilac-50 hover:text-lilac-600 transition-colors">核心優勢</a>
@@ -268,8 +275,8 @@
                     <p class="text-xs md:text-sm text-gray-600 font-bold tracking-widest mt-2 uppercase">買家自助查詢</p>
                 </div>
                 <div class="text-center group cursor-pointer">
-                    <p class="text-2xl md:text-4xl lg:text-5xl font-black text-gray-900 group-hover:text-lilac-600 transition-colors">0ms</p>
-                    <p class="text-xs md:text-sm text-gray-600 font-bold tracking-widest mt-2 uppercase">通知延遲</p>
+                    <p class="text-2xl md:text-4xl lg:text-5xl font-black text-gray-900 group-hover:text-lilac-600 transition-colors">80%</p>
+                    <p class="text-xs md:text-sm text-gray-600 font-bold tracking-widest mt-2 uppercase">私訊減少</p>
                 </div>
             </div>
         </div>
