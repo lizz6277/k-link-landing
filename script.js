@@ -840,6 +840,55 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// Mobile menu toggle (index + any page with #mobile-menu-btn)
+document.addEventListener('DOMContentLoaded', () => {
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeBtn = document.getElementById('mobile-menu-close');
+
+    function closeMobileMenu() {
+        if (!mobileMenu) return;
+        mobileMenu.classList.add('hidden');
+        if (menuBtn) {
+            const icon = menuBtn.querySelector('[data-lucide]');
+            if (icon) {
+                icon.setAttribute('data-lucide', 'menu');
+                lucide.createIcons();
+            }
+        }
+    }
+
+    function openMobileMenu() {
+        if (!mobileMenu) return;
+        mobileMenu.classList.remove('hidden');
+        if (menuBtn) {
+            const icon = menuBtn.querySelector('[data-lucide]');
+            if (icon) {
+                icon.setAttribute('data-lucide', 'x');
+                lucide.createIcons();
+            }
+        }
+        // Re-render icons inside menu (e.g. close button X)
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+    }
+
+    if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', () => {
+            const isOpen = !mobileMenu.classList.contains('hidden');
+            if (isOpen) closeMobileMenu();
+            else openMobileMenu();
+        });
+        // Close button (X) in top-right of menu
+        if (closeBtn) {
+            closeBtn.addEventListener('click', closeMobileMenu);
+        }
+        // Close menu when clicking a link (navigate away or anchor)
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+    }
+});
+
 // FAQ Accordion Controller
 const faqUI = {
     toggle(index) {
