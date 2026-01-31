@@ -6,6 +6,17 @@
 /* Custom Tailwind Config - Note: This should be in a tailwind.config.js file for production */
 /* For now, keeping inline script in HTML for Tailwind CDN compatibility */
 
+/* 開始使用流程：icon 在白色方塊內置中（Lucide SVG 預設會偏左上） */
+.workflow-step-icon-box {
+    align-items: center;
+    justify-content: center;
+}
+.workflow-step-icon-box > svg,
+.workflow-step-icon-box > i {
+    display: block !important;
+    margin: auto !important;
+}
+
 /* Custom Styles */
 html, body {
     overflow-x: hidden;
