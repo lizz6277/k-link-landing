@@ -1,52 +1,10 @@
 // Initialize Lucide icons
 lucide.createIcons();
 
-// Random Hero Title
-const heroTitles = [
-    '把對帳、通知、訂單整理自動化<br>每天少回一堆訊息，提早下班',
-    '告別手動對帳地獄<br>一鍵完成繁瑣工作，專注賺錢',
-    '自動化代購管理系統<br>讓你每天多出 3 小時做更重要的事',
-    '不再為對帳熬夜到半夜<br>系統幫妳處理，輕鬆賺錢',
-    '一鍵對帳、自動通知、買家自助查詢<br>代購管理從此變簡單',
-    '把重複工作交給系統<br>你只需要專注賺錢',
-    '告別 Excel 地獄<br>將時間還給採購與生活',
-    '自動化對帳與通知<br>讓代購工作變得更輕鬆、更賺錢',
-    '買家查詢自動化，讓你專注於 VIP 服務，而非重複問答。'
-];
-
-// Random Hero Badge
-const heroBadges = [
-    '給日韓/kpop/動漫/美妝代購的「對帳＋通知＋查詢」工具',
-    '專為代購主打造的「自動對帳＋通知＋查詢」系統',
-    '代購管理自動化工具｜對帳、通知、查詢一次搞定',
-    '告別手動對帳地獄｜代購管理系統',
-    '自動化代購管理｜對帳、通知、查詢整合工具',
-    '代購主必備｜自動對帳與通知系統',
-    '專業代購管理工具｜一鍵對帳、自動通知',
-    '代購自動化系統｜對帳、通知、查詢工作流',
-    '【代購專用】自動化中樞'
-];
-
-function setRandomHeroTitle() {
-    const heroTitleElement = document.getElementById('hero-title');
-    if (heroTitleElement) {
-        const randomIndex = Math.floor(Math.random() * heroTitles.length);
-        heroTitleElement.innerHTML = heroTitles[randomIndex];
-    }
-}
-
-function setRandomHeroBadge() {
-    const heroBadgeElement = document.getElementById('hero-badge');
-    if (heroBadgeElement) {
-        const randomIndex = Math.floor(Math.random() * heroBadges.length);
-        heroBadgeElement.textContent = heroBadges[randomIndex];
-    }
-}
-
-// Set random title and badge when page loads
+// Hero section: H1 is now static in HTML for SEO (single, keyword-optimized title)
+// Badge remains static
 function initRandomHero() {
-    setRandomHeroTitle();
-    // setRandomHeroBadge(); // Keeping the new static badge for now
+    // No-op: H1 and badge are static for SEO consistency
 }
 
 // Workflow Progress Bar - Redesigned
