@@ -1,0 +1,33 @@
+{
+  "rewrites": [
+    {
+      "source": "/blog/how-to-do-daigou-reconciliation",
+      "destination": "/blog/daigou-duizhang-san-zhong-liucheng.html"
+    },
+    {
+      "source": "/blog/how-to-avoid-daigou-payment-disputes",
+      "destination": "/blog/daigou-shoukuan-mian-jiufen.html"
+    },
+    {
+      "source": "/blog/daigou-order-management-sheet-vs-system",
+      "destination": "/blog/daigou-tuanzhu-dingdan-biaoge-vs-xitong.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/blog/daigou-duizhang-san-zhong-liucheng.html",
+      "destination": "/blog/how-to-do-daigou-reconciliation",
+      "permanent": true
+    },
+    {
+      "source": "/blog/daigou-shoukuan-mian-jiufen.html",
+      "destination": "/blog/how-to-avoid-daigou-payment-disputes",
+      "permanent": true
+    },
+    {
+      "source": "/blog/daigou-tuanzhu-dingdan-biaoge-vs-xitong.html",
+      "destination": "/blog/daigou-order-management-sheet-vs-system",
+      "permanent": true
+    }
+  ]
+}

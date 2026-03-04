@@ -30,19 +30,37 @@
 
   <!-- 部落格文章 -->
   <url>
-    <loc>https://www.klinkpro.site/blog/daigou-duizhang-san-zhong-liucheng.html</loc>
+    <loc>https://www.klinkpro.site/blog/how-to-do-daigou-reconciliation</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://www.klinkpro.site/blog/daigou-shoukuan-mian-jiufen.html</loc>
+    <loc>https://www.klinkpro.site/blog/how-to-avoid-daigou-payment-disputes</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://www.klinkpro.site/blog/daigou-tuanzhu-dingdan-biaoge-vs-xitong.html</loc>
+    <loc>https://www.klinkpro.site/blog/daigou-order-management-sheet-vs-system</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.klinkpro.site/blog/daigou-launch-checklist</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.klinkpro.site/blog/daigou-dm-overload-self-service-tracking</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.klinkpro.site/blog/photocard-allocation-methods-for-daigou</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
