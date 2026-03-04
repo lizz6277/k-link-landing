@@ -11,6 +11,18 @@
     {
       "source": "/blog/daigou-order-management-sheet-vs-system",
       "destination": "/blog/daigou-tuanzhu-dingdan-biaoge-vs-xitong.html"
+    },
+    {
+      "source": "/blog/daigou-launch-checklist",
+      "destination": "/blog/daigou-launch-checklist.html"
+    },
+    {
+      "source": "/blog/daigou-dm-overload-self-service-tracking",
+      "destination": "/blog/daigou-dm-overload-self-service-tracking.html"
+    },
+    {
+      "source": "/blog/photocard-allocation-methods-for-daigou",
+      "destination": "/blog/photocard-allocation-methods-for-daigou.html"
     }
   ],
   "redirects": [
