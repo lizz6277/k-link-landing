@@ -1,6 +1,38 @@
 {
   "rewrites": [
     {
+      "source": "/resources",
+      "destination": "/resources/index.html"
+    },
+    {
+      "source": "/daigou-auto-reconciliation-2026",
+      "destination": "/daigou-auto-reconciliation-2026.html"
+    },
+    {
+      "source": "/buyer-self-service-tracking-2026",
+      "destination": "/buyer-self-service-tracking-2026.html"
+    },
+    {
+      "source": "/compare/daigou-system-vs-excel-2026",
+      "destination": "/compare/daigou-system-vs-excel-2026.html"
+    },
+    {
+      "source": "/compare/daigou-system-how-to-choose-2026",
+      "destination": "/compare/daigou-system-how-to-choose-2026.html"
+    },
+    {
+      "source": "/guides/photocard-allocation-fairness-2026",
+      "destination": "/guides/photocard-allocation-fairness-2026.html"
+    },
+    {
+      "source": "/guides/daigou-payment-dispute-prevention-2026",
+      "destination": "/guides/daigou-payment-dispute-prevention-2026.html"
+    },
+    {
+      "source": "/guides/daigou-dm-overload-solution-2026",
+      "destination": "/guides/daigou-dm-overload-solution-2026.html"
+    },
+    {
       "source": "/blog/how-to-do-daigou-reconciliation",
       "destination": "/blog/daigou-duizhang-san-zhong-liucheng.html"
     },
@@ -26,6 +58,46 @@
     }
   ],
   "redirects": [
+    {
+      "source": "/daigou-auto-reconciliation-2026.html",
+      "destination": "/daigou-auto-reconciliation-2026",
+      "permanent": true
+    },
+    {
+      "source": "/buyer-self-service-tracking-2026.html",
+      "destination": "/buyer-self-service-tracking-2026",
+      "permanent": true
+    },
+    {
+      "source": "/compare/daigou-system-vs-excel-2026.html",
+      "destination": "/compare/daigou-system-vs-excel-2026",
+      "permanent": true
+    },
+    {
+      "source": "/compare/daigou-system-how-to-choose-2026.html",
+      "destination": "/compare/daigou-system-how-to-choose-2026",
+      "permanent": true
+    },
+    {
+      "source": "/guides/photocard-allocation-fairness-2026.html",
+      "destination": "/guides/photocard-allocation-fairness-2026",
+      "permanent": true
+    },
+    {
+      "source": "/guides/daigou-payment-dispute-prevention-2026.html",
+      "destination": "/guides/daigou-payment-dispute-prevention-2026",
+      "permanent": true
+    },
+    {
+      "source": "/guides/daigou-dm-overload-solution-2026.html",
+      "destination": "/guides/daigou-dm-overload-solution-2026",
+      "permanent": true
+    },
+    {
+      "source": "/resources/index.html",
+      "destination": "/resources",
+      "permanent": true
+    },
     {
       "source": "/blog/daigou-duizhang-san-zhong-liucheng.html",
       "destination": "/blog/how-to-do-daigou-reconciliation",
